@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<phpunit stderr="true" bootstrap="tests/autoload.php">
+ <testsuites>
+ <testsuite name="tests">
+ <directory>tests</directory>
+ </testsuite>
+ </testsuites>
+ <filter>
+ <whitelist processUncoveredFilesFromWhitelist="true">
+ <directory>furniture/controllers</directory>
+ </whitelist>
+</filter>
+</phpunit>
