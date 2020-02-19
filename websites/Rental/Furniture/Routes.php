@@ -74,18 +74,7 @@ class Routes implements \classes\Routes {
                     'login' => true,
                     ],
                 
-
-
-
-
-
-
-
-
-
-    
-
-                
+      
 
 
                 //Users
@@ -158,46 +147,6 @@ class Routes implements \classes\Routes {
                     ],
                     'login' => true,
                     ],
- 
-                //Furnitres
-                'admin/furniture' => [
-                    'GET' => [
-                    'controller' => $adminController,
-                    'function' => 'furniture',
-                    ],
-                'POST' => [
-                    'controller' => $adminController,
-                    'function' => 'deleteProduct',                
-                ],
-                'login' => true,
-                
-            ],
-        
-                'admin/add-furniture' => [
-                    'GET' => [
-                        'controller' => $adminController,
-                        'function' => 'addProduct',
-                    ],
-                    'POST' => [
-                        'controller' => $adminController,
-                        'function' => 'subFurniture',
-                    ],
-                    'login' => true,
-                    'permissions' => \Furniture\Entities\Admin::ADD,
-                    ],
-                //Need to edit furniture
-
-                'admin/edit-furniture' => [
-                    'GET' => [
-                        'controller' => $adminController,
-                        'function' => 'editproduct',
-                    ],
-                    'POST' => [
-                        'controller' => $adminController,
-                        'function' => 'editproduct',
-                    ],
-                    'login' => true,
-                ],
 
                 ];
 

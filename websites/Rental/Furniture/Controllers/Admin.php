@@ -130,6 +130,14 @@ public function showLandlords () {
     return [
         "template" => 'admin/landlords.php',
         "title" => "landlords",
+        'class' => "test",
+        'heading' => "Landlords",
+        'buttons' => [
+            'enabled' => true,
+            'addLink' => '/test',
+            'deleteLink' => '/test',
+            'editLink' => '/test',
+        ],
         'variables' => [
             'landlords' => $landlords,
         ],

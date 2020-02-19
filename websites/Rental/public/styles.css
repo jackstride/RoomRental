@@ -4,383 +4,185 @@
 * {
     margin: 0;
     padding: 0;
-}
-
-html {
-    font-family: 'Oxygen-Regular', verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
- background-color: white;   
+    /* background-color: #F3EDED; */
+    background-color: white;
+}
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    color: white;
+    font-weight: 400;
+}
+
+
+
+h2 {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.application_container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 header {
-    background-color: white;
-    color: white;
-    height: 200px;
+    background-color: #358F6D;
+    height: 100%;
+    width: 100%;
+    grid-column: 1;
+    grid-row: span 2;
+}
 
+main {
+    height: 90%;
+    width: 90%;
+    margin: auto ;
+    grid-column: 2;
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
 }
 
 li {
     list-style-type: none;
 }
+
 a {
     text-decoration: none;
-    color: black;
-}
-header img {
-    width: 500px;
-    float: left;
-    background-color: white;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-header aside {
-    float: right;
-    margin-top: 15px;
-}
-
-header section {
-    width: 1000px;
-    display: block;
-    margin: auto;
-}
-
-header h1 {
-    float: left;
-    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: .2px;
 }
 
 nav {
     width: 100%;
-    background-color: #37AFAF;
     overflow: auto;
 }
 
-body>img {
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+form input {
+    width: 300px;
+    height: 25px;
+    background-color: none;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin: 20px 0px;
+}
+
+
+.inner_container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    ;
+}
+
+table {
+    border-collapse: separate;
     width: 100%;
-    display: block;
+    border-radius: 12px;
+    background-color: white;
+    border-spacing: 0;
+    height: fit-content;
+  }
+
+  th {
+      padding: 20px;
+      background-color: #FAFBFC;
+      color: grey;
+      font-weight: 400;
+  }
+
+  th:first-child {
+    border-top-left-radius:12px;
+    border-bottom-left-radius: 12px;
+  }
+   
+  th:last-child {
+    border-top-right-radius:12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  td {
+      padding: 10px 0px;
+      text-align: center;
+  }
+
+
+
+
+/* Header */
+
+.company_header {
+    width: 100%;
+    padding: 20px 0px;
+    
+
 }
 
-nav ul {
-    width: 1000px;
-    margin: auto;
-    display: block;
-    list-style-type: none;
+
+
+
+
+
+/* Admin Nav */
+.admin_nav {
+    height: 50%;
+    width: 100%;
 }
 
-nav ul li {
-    width: 20%;
-    float: left;
-    overflow: auto;
+.admin_nav ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-    nav a {
-        color: white;
-        padding-top: 10px;
-        display: block;
-    }
 
 
 
-    nav {
-        font-family: 'Oxygen-Regular';
-    }
 
-    header section {
-        display: block;
-        font-family: 'Mr Dafoe', cursive;
-    }
+/* Template */
 
-    header h1 {
-        font-weight: normal;
-    }
+.template_heading {
+    width: 100%;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+}
 
+.template_heading ul{
+    display: flex;
+    align-items: center;
+}
 
-    h1 {
-        font-size: 4em;
-        color: white;
-        text-align: center;
-        padding-top: 20px;
-        text-shadow: 2px 2px 2px #000;
-    }
-
-    main {
-        min-height: 75vh;
-        background-color: #eee;
-        width: 70vw;
-        display: block;
-        margin: auto;
-        box-shadow: 0px 0px 10px #888;
-        color: #444;
-    }
-
-    footer {
-        min-height: 5vh;
-    }
-
-    main h2 {
-        font-size: 2em;
-    }
-
-    .home {
-        padding: 5vw;
-        width: 60vw;
-    }
-
-    p,
-    li,
-    h2 {
-        margin-bottom: 1em;
-    }
-
-    ol {
-        margin-left: 30px;
-    }
-
-    pre {
-        margin-top: 20px;
-    }
-
-    code {
-        background-color: #ccc;
-    }
-
-    pre code {
-        display: block;
-    }
-
-    footer {
-        background-color: #8ED0CD;
-        padding: 10px;
-        color: black;
-    }
-
-    form select,
-    form label,
-    form input,
-    form textarea {
-        float: left;
-        width: 200px;
-        padding: 10px;
-        margin-top: 20px;
-    }
-
-    form label {
-        clear: left;
-    }
-
-    textarea {
-        height: 100px;
-    }
-
-    form input[type="text"],
-    form input[type="password"],
-    textarea {
-        color: #999;
-        font-family: verdana, sans-serif
-    }
-
-    input[type="submit"] {
-        clear: both;
-        margin-left: 220px;
-        width: 220px;
-    }
-
-    .left ul {
-        list-style-type: none
-    }
-
-    section a {
-        color: #444;
-    }
-
-    form select {
-        width: 220px;
-    }
-
-    table {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    td {
-        padding: 5px;
-        border-bottom: 1px solid #333;
-    }
-
-    .jobs {
-        list-style-type: none
-    }
-
-    .jobs strong {
-        width: 150px;
-        float: left;
-        clear: left;
-    }
-
-    .jobs p {
-        width: 500px;
-        float: left;
-    }
-
-    .jobs li {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border-bottom: 2px solid #aaa;
-        overflow: auto
-    }
-
-    .jobs a {
-        float: right;
-        clear: both;
-    }
-
-    img.shop {
-        width: 800px;
-    }
-
-    .admin {
-        
-    }
-    .table_container {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        grid-template-rows: auto;
-        height: 500px;
-        width: 100%;
-        gap: 1vw;
-    }
-
-    .table_name {
-        height: 100%;
-        width: 100%;
-        background-color: lightblue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .table_name a {
-        font-size: 22px;
-
-    }
+.template_heading li {
+    padding: 0px 10px;
+    width: fit-content;
+    height: fit-content;
+    background-color: black;
+    border-radius: 12px;
 
 
+}
 
-    .stock>ul,
-    .admin .left {
-        width: 10vw;
-        list-style-type: none;
-        display: table-cell;
-        padding: 10px;
-        background-color: #555;
-        margin: 0;
-    }
-
-    .stock .products,
-    .admin .right {
-        display: table-cell;
-        padding: 20px;
-    }
-
-    .stock>ul a,
-    .admin .left a {
-        color: white;
-        text-decoration: none;
-    }
-
-    table td input[type="submit"] {
-        margin: 0;
-        float: right;
-        width: auto;
-        padding: auto;
-    }
-
-    .furniture ul {
-        margin-top: 40px;
-        list-style-type: none;
-    }
-
-    .furniture li {
-        border-top: 2px solid #888;
-        padding: 20px;
-        overflow: auto;
-    }
-
-    .furniture li .noimage,
-    .furniture li img {
-        width: 20%;
-        margin-right: 4%;
-        min-height: 50px;
-        float: left;
-    }
-
-    .furniture .info {
-        float: left;
-        width: 75%;
-    }
-
-    .current {
-        background-color: #ddd;
-        color: #333;
-        display: block;
-    }
-
-    .current a {
-        color: #333 !important;
-    }
-
-    .stock>ul .current a {
-        color: #333;
-    }
-
-    .categories li {
-        margin: 0;
-        padding: 0.5em;
-        font-size: 2em;
-    }
-
-    .products>img {
-        max-height: 300px;
-    }
-
-    a:hover {
-        color: #ccc !important;
-    }
-
-    .right {
-        padding: 20px;
-    }
-
-    main h1 {
-        color: #666;
-    }
-
-    main img {
-        display: block;
-    }
-
-
-    th {
-        text-align: left;
-    }
-
-
-    .sort>form>input[type="submit"] {
-        margin-left: 0px;
-    }
-
-
-    h3 {
-        color: white;
-        text-decoration: underline;
-        font-size: 16px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-    }
-
-    .error>li {
-        color: red;
-    }
+.template_heading a {
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+}
