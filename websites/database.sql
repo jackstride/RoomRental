@@ -37,10 +37,13 @@ CREATE TABLE `houses` (
   `number_of_floors` int(11) DEFAULT NULL,
   `number_of_rooms` int(11) DEFAULT NULL,
   `wifi_available` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `landlord_id` int(6) DEFAULT NULL,
   PRIMARY KEY (`house_id`),
   KEY `fk_h_rooms` (`room_id`),
+  KEY `fk_h_landlord` (`landlord_id`),
+  CONSTRAINT `fk_h_landlord` FOREIGN KEY (`landlord_id`) REFERENCES `landlords` (`landlord_id`),
   CONSTRAINT `fk_h_rooms` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +52,7 @@ CREATE TABLE `houses` (
 
 LOCK TABLES `houses` WRITE;
 /*!40000 ALTER TABLE `houses` DISABLE KEYS */;
-INSERT INTO `houses` VALUES (1,NULL,'2 pippin close',2,2,'Yes'),(2,NULL,'test',0,0,'test'),(3,NULL,'test',0,0,'test'),(4,NULL,'test',0,0,'test');
+INSERT INTO `houses` VALUES (5,NULL,'2 Pippin Close',2,2,'tes',3),(6,NULL,'2 Pippin Close',2,2,'tes',3),(7,NULL,'2 Pippin Close',2,2,'tes',3);
 /*!40000 ALTER TABLE `houses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +157,7 @@ CREATE TABLE `rooms` (
   KEY `fk_r_landlords` (`landlord_id`),
   CONSTRAINT `fk_r_landlords` FOREIGN KEY (`landlord_id`) REFERENCES `landlords` (`landlord_id`),
   CONSTRAINT `fk_r_rentals` FOREIGN KEY (`rental_id`) REFERENCES `rentals` (`rental_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,6 +166,7 @@ CREATE TABLE `rooms` (
 
 LOCK TABLES `rooms` WRITE;
 /*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
+INSERT INTO `rooms` VALUES (1,NULL,NULL,'double',999.00,999.00,'Great','rttest'),(2,NULL,NULL,'single',999.00,999.00,'test','test'),(3,NULL,NULL,'single',999.00,999.00,'test','test'),(4,NULL,NULL,'single',999.00,999.00,'test','test');
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1040,4 +1044,4 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-20 11:36:18
+-- Dump completed on 2020-02-20 13:20:28

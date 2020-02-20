@@ -12,10 +12,9 @@ class Room {
 
 
 
-    public function getName($id) {
-        echo $id;
-        $test = $this->landlordsTable->find('landlord_id', $id)[0];
-        var_dump($test);
+    public function getName($id) {        
+        $test = $this->landlordsTable->find('landlord_id', $id);
+        return $test[0]->name;
     }
 
 
