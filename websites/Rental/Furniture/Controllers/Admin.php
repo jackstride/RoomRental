@@ -137,7 +137,7 @@ public function showLandlords () {
     $landlords = $this->landlordsTable->findAll();
 
     return [
-        "template" => 'admin/landlords.php',
+        "template" => 'admin/landlords/landlords.php',
         "title" => "landlords",
         'class' => "test",
         'heading' => "Landlords",
@@ -229,17 +229,22 @@ public function showRooms() {
 
 public function addRoom() {
 
+    $houses = $this->housesTable->findAll();
+    $tenants = $this->tenantsTable->findAll();
+
+    
+
     if(isset($_POST['submit'])){
         $this->roomsTable->insert($_POST['room']);
     }
-
-    
 
         return [
             'template' => 'admin/rooms/add-room.php',
             'title' => 'Rooms',
             'heading' => "Add Room",
             'variables' => [
+                'houses' => $houses,
+                'tenants' => $tenants,
             ]
         ];
 }
@@ -266,6 +271,24 @@ public function showTenants() {
                 'tenants' => $tenants,
             ]
         ];
+}
+
+public function addTenants() {
+
+    $rooms = $this->roomsTable->findAll();
+    
+    if(isset($_POST['submit'])){
+        $this->tenantsTable->insert($_POST['tenant']);
+    }
+
+    return [
+        'template' => 'admin/tenants/add-tenants.php',
+        'title' => 'Tenants',
+        'heading' => "Add Tenants",
+        'variables' => [
+            'rooms' => $rooms,
+        ]
+    ];
 }
 
 

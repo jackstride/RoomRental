@@ -120,5 +120,16 @@ public function update($fields)
 
 }
 
+
+
+
+
+// Delete with forign Key
+
+public function deleteWithFKey ($vars){
+
+
+
+}
 }
 ?>

@@ -22,7 +22,6 @@ foreach($houses as $house) {?>
     <td> <?=$house->number_of_rooms?> </td>
     <td> <?=$house->wifi_available?> </td>
     <td> <?=$house->getName($house->landlord_id)?> </td>
-    <td> <?=$house->landlord_id?> </td>
     <!-- <td>
     <form class="edit_delete" method="post">
 

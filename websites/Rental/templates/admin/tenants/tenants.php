@@ -9,7 +9,7 @@
             <th>Mobile Number</th>
             <th>Email</th>
             <th>Employer Details</th>
-            <th>Rooms Available</th>
+            <th>Room Occupied</th>
             <th>Modify</th>
         </tr>
     </thead>

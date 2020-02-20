@@ -1,6 +1,9 @@
 <form method="post">
-<label for="name"> Name </label>
-<input type="text" name="landlord[name]"/>
+<label for="first_name">First name</label>
+<input type="text" name="landlord[first_name]"/>
+
+<label for="last_name">Last Name</label>
+<input type="text" name="landlord[last_name]"/>
 
 <label for="address"> Address </label>
 <input type="text" name="landlord[address]"/>

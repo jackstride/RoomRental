@@ -3,7 +3,8 @@
 <table>
     <thead>
         <tr>
-            <th>Name</th>
+            <th>First Namee</th>
+            <th>Last Name</th>
             <th>Address</th>
             <th>Phone Number</th>
             <th>Email Address</th>
@@ -16,7 +17,8 @@
 foreach($landlords as $landlord) {?>
 
 <tr>
-    <td> <?=$landlord->name?> </td>
+    <td> <?=$landlord->first_name?> </td>
+    <td> <?=$landlord->last_name?> </td>
     <td> <?=$landlord->address?> </td>
     <td> <?=$landlord->phone_number?> </td>
     <td> <?=$landlord->email_address?> </td>

@@ -3,11 +3,15 @@
 <table>
     <thead>
         <tr>
+            <th>House Address</th>
+            <th>Tenant</th>
             <th>Type of Room</th>
-            <th>Monthyl Amount</th>
+            <th>Monthly Amount</th>
             <th>Deposit Cost</th>
             <th>Description</th>
-            <th>Condition of Room</th>
+            <th>Furnashed</th>
+            <th>Ensuite</th>
+            <th>occupied</th>
             <th>Modify</th>
         </tr>
     </thead>
@@ -17,11 +21,15 @@
 foreach($rooms as $room) {?>
 
 <tr>
+    <td> <?=$room->room_id?> </td>
+    <td> <?=$room->room_id?> </td>
     <td> <?=$room->room_type?> </td>
     <td> <?=$room->monthly_rental_figure?> </td>
     <td> <?=$room->deposit_figure?> </td>
     <td> <?=$room->description?> </td>
-    <td> <?=$room->room_condition?> </td>
+    <td> <?= $room->furnished ? "Yes" : "No" ?> </td>
+    <td> <?=$room->ensuite ? "Yes" : "No" ?> </td>
+    <td> <?=$room->occupied ? "Yes" : "No" ?> </td>
     <!-- <td>
     <form class="edit_delete" method="post">
 

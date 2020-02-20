@@ -16,7 +16,7 @@
 <select name="house[landlord_id]">
 <?php
 foreach($landlords as $landlord) {?>
-<option value="<?=$landlord->landlord_id?>"><?=$landlord->name?></option>
+<option value="<?=$landlord->landlord_id?>"><?=$landlord->first_name . " " . $landlord->last_name?></option>
 <?php 
 } ?>
 

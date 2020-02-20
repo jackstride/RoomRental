@@ -11,11 +11,12 @@ $hide = $user->hasPermission(\Furniture\Entities\Admin::HIDE);
 
 <nav class="admin_nav">
 <ul>
-<li><a href='/admin/rentals'>Rentals</a></li>
-<li><a href='/admin/tenants'>Tenants</a></li>
-<li><a href='/admin/rooms'>Rooms</a></li>
-<li><a href='/admin/houses'>Houses</a></li>
 <li><a href='/admin/landlords'>Landlords</a></li>
+<li><a href='/admin/houses'>Houses</a></li>
+<li><a href='/admin/rooms'>Rooms</a></li>
+<li><a href='/admin/tenants'>Tenants</a></li>
+<li><a href='/admin/rentals'>Rentals</a></li>
+
  </ul>
  </nav>
 
