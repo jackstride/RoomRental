@@ -11,5 +11,16 @@
 <label for="wifi_available">Wifi Available</label>
 <input type="text" name="house[wifi_available]"/>
 
+<label for="landlord_id">Select a landlord</label>
+
+<select name="house[landlord_id]">
+<?php
+foreach($landlords as $landlord) {?>
+<option value="<?=$landlord->landlord_id?>"><?=$landlord->name?></option>
+<?php 
+} ?>
+
+</select>
+
 <input type="submit" name="submit" value="Add House"/>
 </form>

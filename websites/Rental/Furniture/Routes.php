@@ -30,9 +30,8 @@ class Routes implements \classes\Routes {
         $this->rentalsTable = new \classes\databaseFunctions($pdo, 'rentals', 'rental_id');
         $this->tenantsTable = new \classes\databaseFunctions($pdo, 'tenants', 'tenant_id');
         $this->roomsTable = new \classes\databaseFunctions($pdo, 'rooms', 'room_id');
-        $this->housesTable = new \classes\databaseFunctions($pdo, 'houses', 'house_id');
+        $this->housesTable = new \classes\databaseFunctions($pdo, 'houses', 'house_id','\Furniture\Entities\Room',[&$this->landlordsTable]);
         $this->landlordsTable = new \classes\databaseFunctions($pdo, 'landlords', 'landlord_id');
-
         // $this->images = new \classes\Images($this->imagesTable);
         
         $this->authentication = new \classes\Authentication($this->usersTable, 'email', 'password');
@@ -125,6 +124,17 @@ class Routes implements \classes\Routes {
                     'POST' => [
                         'controller' => $adminController,
                         'function' => 'showRooms'
+                    ],
+                ],
+
+                'admin/rooms/add' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'addRoom'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'addRoom'
                     ],
                 ],
 

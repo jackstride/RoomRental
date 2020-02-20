@@ -18,7 +18,7 @@ foreach($rooms as $room) {?>
 
 <tr>
     <td> <?=$room->room_type?> </td>
-    <td> <?=$room->monthly_renalt_cost?> </td>
+    <td> <?=$room->monthly_rental_figure?> </td>
     <td> <?=$room->deposit_figure?> </td>
     <td> <?=$room->description?> </td>
     <td> <?=$room->room_condition?> </td>

@@ -48,7 +48,7 @@ class databaseFunctions
             'value' => $value,
         ];
         $query = $this->query($query, $parameters);
-        return $query->fetchAll();        
+        return $query->fetchAll();
     }
 
     //Function to return the Highest id inside a database table (Last insert)

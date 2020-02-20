@@ -7,6 +7,7 @@
             <th>Number of Floors</th>
             <th>Number of Rooms</th>
             <th>Wifi Available</th>
+            <th>LandLord</th>
             <th>Modify</th>
         </tr>
     </thead>
@@ -20,6 +21,8 @@ foreach($houses as $house) {?>
     <td> <?=$house->number_of_floors?> </td>
     <td> <?=$house->number_of_rooms?> </td>
     <td> <?=$house->wifi_available?> </td>
+    <td> <?=$house->getName($house->landlord_id)?> </td>
+    <td> <?=$house->landlord_id?> </td>
     <!-- <td>
     <form class="edit_delete" method="post">
 

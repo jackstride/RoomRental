@@ -168,14 +168,10 @@ public function addLandlord () {
 
 
 
-
-
-
 // Houses of multiple
 public function showHouses() {
 
-    $houses = $this->housesTable->findAll();
-
+    $houses = $this->housesTable->findAll();    
         return [
             'template' => 'admin/hmo/hmo.php',
             'title' => 'Houses',
@@ -192,6 +188,8 @@ public function showHouses() {
 
 public function addHouse() {
 
+    $landlord = $this->landlordsTable->findAll();
+
     if(isset($_POST['submit'])){
         $this->housesTable->insert($_POST['house']);
     }
@@ -201,6 +199,7 @@ public function addHouse() {
             'title' => 'Houses',
             'heading' => "Add HMO",
             'variables' => [
+                'landlords' => $landlord
             ]
         ];
 }
@@ -223,6 +222,24 @@ public function showRooms() {
             ],
             'variables' => [
                 'rooms' => $rooms,
+            ]
+        ];
+}
+
+
+public function addRoom() {
+
+    if(isset($_POST['submit'])){
+        $this->roomsTable->insert($_POST['room']);
+    }
+
+    
+
+        return [
+            'template' => 'admin/rooms/add-room.php',
+            'title' => 'Rooms',
+            'heading' => "Add Room",
+            'variables' => [
             ]
         ];
 }
