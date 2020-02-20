@@ -32,9 +32,6 @@
 	<?= $buttons['enabled'] ?
 	"<ul>"
 	 . "<li><a href='" . $buttons['addLink'] . "'>Add</a></li>" 
-	 . "<li><a href='" . $buttons['deleteLink'] . "'>Edit</a></li>" 
-	 . "<li><a href='" . $buttons['editLink'] . "'>Delete</a></li>"
-	
 	: null ?>
 	
 	</div>

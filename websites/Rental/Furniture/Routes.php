@@ -7,10 +7,12 @@ class Routes implements \classes\Routes {
 
     
     private $landlordsTable;
-    private $usersTable;
-    private $newsTable;
+    private $housesTable;
+    private $roomsTable;
+    private $tenantsTable;
+    private $rentalsTable;
+    private $usersTable;    
     private $imagesTable;
-    private $enquiriesTable;
     private $authentication;
     private $images;
 
@@ -25,9 +27,9 @@ class Routes implements \classes\Routes {
         // $this->furnitureTable = new \classes\databaseFunctions($pdo, 'furniture', 'id','\Furniture\Entities\Furniture',[&$this->categoryTable,&$this->imagesTable]);
         $this->usersTable = new \classes\databaseFunctions($pdo, 'users', 'id','\Furniture\Entities\Admin');  
         $this->imagesTable = new \classes\databaseFunctions($pdo, 'images', 'id');
-        $this->rentalsTable = new \classes\databaseFunctions($pdo, 'rentalts', 'rental_id');
+        $this->rentalsTable = new \classes\databaseFunctions($pdo, 'rentals', 'rental_id');
         $this->tenantsTable = new \classes\databaseFunctions($pdo, 'tenants', 'tenant_id');
-        $this->roomsTable = new \classes\databaseFunctions($pdo, 'room', 'room_id');
+        $this->roomsTable = new \classes\databaseFunctions($pdo, 'rooms', 'room_id');
         $this->housesTable = new \classes\databaseFunctions($pdo, 'houses', 'house_id');
         $this->landlordsTable = new \classes\databaseFunctions($pdo, 'landlords', 'landlord_id');
 
@@ -40,7 +42,7 @@ class Routes implements \classes\Routes {
     {
         //Define controllers
         $employeeController = new \Furniture\Controllers\employees($this->usersTable, $_GET, $_POST);
-        $adminController = new \Furniture\Controllers\admin($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $_GET, $_POST); 
+        $adminController = new \Furniture\Controllers\admin($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $this->housesTable, $this->roomsTable, $this->tenantsTable, $this->rentalsTable, $_GET, $_POST); 
     
         $routes = [
             '' => [
@@ -61,20 +63,101 @@ class Routes implements \classes\Routes {
                 ],
                 'login' => true,
                 ],
-
-
                 // Landlords
-
-
                 'admin/landlords' => [
                     "GET" => [
                         'controller' => $adminController,
                         "function" => 'showLandlords'
                     ],
+                    "POST" => [
+                        'controller' => $adminController,
+                        "function" => 'showLandlords'
+                    ],
                     'login' => true,
                     ],
+
                 
-      
+                // Add landlord
+                'admin/landlords/add' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'addLandLord'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'addLandlord'
+                    ],
+                ],
+
+
+                // Houses
+
+                'admin/houses' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'showHouses'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'showHouses'
+                    ],
+                ],
+
+                'admin/houses/add' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'addHouse'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'addHouse'
+                    ],
+                ],
+
+
+                //Rooms 
+
+                'admin/rooms' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'showRooms'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'showRooms'
+                    ],
+                ],
+
+
+                // Tenants
+
+                'admin/tenants' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'showTenants'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'showTenants'
+                    ],
+                ],
+
+                // Rentals
+
+                'admin/rentals' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'showRentals'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'showRentals'
+                    ],
+                ],
+                
+
+                
+
 
 
                 //Users

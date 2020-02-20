@@ -7,6 +7,10 @@ class Admin {
     
     private $authentication;
     private $landlordsTable;
+    private $housesTable;
+    private $roomsTable;
+    private $tenantsTable;
+    private $rentalsTable;
     private $imagesTable;
     private $images;
     private $usersTable;
@@ -14,15 +18,19 @@ class Admin {
     private $post;
     
     //Defines which classes are needed.
-    public function __construct(\classes\Authentication $authentication,$imagesTable, $images,$usersTable, $landlordsTable, array $get, array $post)
+    public function __construct(\classes\Authentication $authentication,$imagesTable,$images,$usersTable,$landlordsTable,$housesTable,$roomsTable,$tenantsTable,$rentalsTable, array $get, array $post)
     {
         $this->authentication = $authentication;
-        $this->landlordsTable = $landlordsTable;
         $this->imagesTable = $imagesTable;
         $this->images = $images;
         $this->usersTable = $usersTable;
         $this->get = $get;
         $this->post = $post;
+        $this->landlordsTable = $landlordsTable;
+        $this->housesTable = $housesTable;
+        $this->roomsTable = $roomsTable;
+        $this->tenantsTable = $tenantsTable;
+        $this->rentalsTable = $rentalsTable;
     }
     public function login() {
     // Redirects the user if already logged in
@@ -89,10 +97,7 @@ class Admin {
 
 
     public function showHome()
-
     {
-        
-
         return ['template' => 'admin/admin-success.php',
         'title' => 'Login',
         'class' => 'admin',
@@ -100,11 +105,6 @@ class Admin {
         ]
                 ];  
     }
-
-    
-
-
-    
 
     public function logout()
     {
@@ -126,7 +126,16 @@ class Admin {
 
 
 public function showLandlords () {
+    if(isset($_POST['delete'])) {
+
+        $vars = [
+            'id' => $_POST['id']
+        ];
+        $this->landlordsTable->delete($vars);
+    }
+    
     $landlords = $this->landlordsTable->findAll();
+
     return [
         "template" => 'admin/landlords.php',
         "title" => "landlords",
@@ -134,18 +143,141 @@ public function showLandlords () {
         'heading' => "Landlords",
         'buttons' => [
             'enabled' => true,
-            'addLink' => '/test',
-            'deleteLink' => '/test',
-            'editLink' => '/test',
+            'addLink' => 'landlords/add',
         ],
         'variables' => [
             'landlords' => $landlords,
         ],
     ];
-}    
+
+}
+
+public function addLandlord () {
+    if(isset($_POST['submit'])) {
+        $vars = $_POST['landlord'];
+        $this->landlordsTable->insert($vars);
+    }
+        return [
+            'template' => 'admin/landlords/add-landlord.php',
+            'title' => 'You have been logged out',
+            'heading' => "Add a new landlord",
+            'variables' => [
+            ]
+        ];
 }
 
 
 
 
-?>
+
+
+// Houses of multiple
+public function showHouses() {
+
+    $houses = $this->housesTable->findAll();
+
+        return [
+            'template' => 'admin/hmo/hmo.php',
+            'title' => 'Houses',
+            'heading' => "Houses of Multiple Occupancy",
+            'buttons' => [
+                'enabled' => true,
+                'addLink' => 'houses/add',
+            ],
+            'variables' => [
+                'houses' => $houses,
+            ]
+        ];
+}
+
+public function addHouse() {
+
+    if(isset($_POST['submit'])){
+        $this->housesTable->insert($_POST['house']);
+    }
+
+    return [
+            'template' => 'admin/hmo/add-hmo.php',
+            'title' => 'Houses',
+            'heading' => "Add HMO",
+            'variables' => [
+            ]
+        ];
+}
+
+
+
+// Rooms
+
+public function showRooms() {
+
+    $rooms = $this->roomsTable->findAll();
+
+        return [
+            'template' => 'admin/rooms/rooms.php',
+            'title' => 'Rooms',
+            'heading' => "Rooms",
+            'buttons' => [
+                'enabled' => true,
+                'addLink' => 'rooms/add',
+            ],
+            'variables' => [
+                'rooms' => $rooms,
+            ]
+        ];
+}
+
+
+
+
+
+// Tenants
+
+public function showTenants() {
+
+    $tenants = $this->tenantsTable->findAll();
+
+        return [
+            'template' => 'admin/tenants/tenants.php',
+            'title' => 'Tenants',
+            'heading' => "Tenants",
+            'buttons' => [
+                'enabled' => true,
+                'addLink' => 'tenants/add',
+            ],
+            'variables' => [
+                'tenants' => $tenants,
+            ]
+        ];
+}
+
+
+
+
+
+// Rentals
+
+public function showRentals() {
+
+    $rentals = $this->rentalsTable->findAll();
+
+        return [
+            'template' => 'admin/rentals/rentals.php',
+            'title' => 'Houses',
+            'heading' => "Houses of Multiple Occupancy",
+            'buttons' => [
+                'enabled' => true,
+                'addLink' => 'rentals/add',
+            ],
+            'variables' => [
+                'rentals' => $rentals,
+            ]
+        ];
+}
+
+
+
+
+
+
+}?>

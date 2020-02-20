@@ -35,8 +35,8 @@ class EntryPoint {
     
     //Below sets the class name to either a $page variable, if one's not set then 'home' is chosen 
     $class = $page['class'] ?? 'home';
-    $heading = $page['heading'];
-    $buttons = $page['buttons'];
+    $heading = $page['heading'] ?? null;
+    $buttons = $page['buttons'] ?? null;
     
     $output = $this->loadTemplate('../templates/' . $page['template'], $page['variables']);
     

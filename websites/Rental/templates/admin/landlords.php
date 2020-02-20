@@ -7,6 +7,7 @@
             <th>Address</th>
             <th>Phone Number</th>
             <th>Email Address</th>
+            <th>Modify</th>
         </tr>
     </thead>
 
@@ -19,12 +20,14 @@ foreach($landlords as $landlord) {?>
     <td> <?=$landlord->address?> </td>
     <td> <?=$landlord->phone_number?> </td>
     <td> <?=$landlord->email_address?> </td>
-    <!-- <td><a style='float: right' href='edit-category?id=$landlord->id'>Edit</a></td>
-    <td> 
-        <form method="post">
-        <!-- <input type='hidden' name='id' value='$landlord->id' />
-        <input type='submit' name='submit' value='delete' />  -->       
-        <!-- </form>  -->
+    <td>
+    <form class="edit_delete" method="post">
+
+    <input type="hidden" name="id" value="<?=$landlord->landlord_id?>" />
+    <input type="submit" name="delete" value="delete" />
+    
+    </form>
+    <a style="color: black" href="landlord/edit?id=<?=$landlord->landlord_id?>">Edit</a>
     </td> 
 </tr>
 

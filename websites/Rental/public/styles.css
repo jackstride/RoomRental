@@ -177,12 +177,25 @@ table {
     height: fit-content;
     background-color: black;
     border-radius: 12px;
-
-
 }
 
 .template_heading a {
     color: white;
     font-size: 16px;
     font-weight: 300;
+}
+
+
+form.edit_delete {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+form.edit_delete>input{
+    width: 50px; 
+    margin: 0px 10px;
+        
 }
