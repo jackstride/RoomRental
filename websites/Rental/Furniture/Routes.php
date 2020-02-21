@@ -28,9 +28,9 @@ class Routes implements \classes\Routes {
         $this->usersTable = new \classes\databaseFunctions($pdo, 'users', 'id','\Furniture\Entities\Admin');  
         $this->imagesTable = new \classes\databaseFunctions($pdo, 'images', 'id');
         $this->rentalsTable = new \classes\databaseFunctions($pdo, 'rentals', 'rental_id');
-        $this->tenantsTable = new \classes\databaseFunctions($pdo, 'tenants', 'tenant_id');
-        $this->roomsTable = new \classes\databaseFunctions($pdo, 'rooms', 'room_id');
-        $this->housesTable = new \classes\databaseFunctions($pdo, 'houses', 'house_id','\Furniture\Entities\Room',[&$this->landlordsTable]);
+        $this->tenantsTable = new \classes\databaseFunctions($pdo, 'tenants', 'tenant_id','\Furniture\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
+        $this->roomsTable = new \classes\databaseFunctions($pdo, 'rooms', 'room_id','\Furniture\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
+        $this->housesTable = new \classes\databaseFunctions($pdo, 'houses', 'house_id','\Furniture\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
         $this->landlordsTable = new \classes\databaseFunctions($pdo, 'landlords', 'landlord_id');
         // $this->images = new \classes\Images($this->imagesTable);
         

@@ -8,14 +8,6 @@ foreach($houses as $house) {?>
 <?php 
 } ?>
 </select>
-<label for="name">Select Tenant</label>
-<select name="room[tenant_id]">
-<?php
-foreach($tenants as $tenant) {?>
-<option value="<?=$tenant->landlord_id?>"><?=$tenant->first_name . " " . $tenant->last_name?></option>
-<?php 
-} ?>
-</select>
 
 <label for="name">Type of Room</label>
 <select name="room[room_type]">
@@ -32,20 +24,20 @@ foreach($tenants as $tenant) {?>
 <label for="description">Description</label>
 <input type="text" name="room[description]"/>
 
-<label for="furnished">Furnished</label>
-<select name="room[furnished]">
+<label for="is_furnished">Furnished</label>
+<select name="room[is_furnished]">
 <option value="0"> No </option>
 <option value="1"> Yes </option>
 </select>
 
-<label for="ensuite">Ensuite</label>
-<select name="room[ensuite]">
+<label for="is_ensuite">Ensuite</label>
+<select name="room[is_ensuite]">
 <option value="0"> No </option>
 <option value="1"> Yes </option>
 </select>
 
-<label for="occupied">Occupied</label>
-<select name="room[occupied]">
+<label for="is_occupied">Occupied</label>
+<select name="room[is_occupied]">
 <option value="0"> No </option>
 <option value="1"> Yes </option>
 </select>

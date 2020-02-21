@@ -9,7 +9,7 @@
             <th>Mobile Number</th>
             <th>Email</th>
             <th>Employer Details</th>
-            <th>Room Occupied</th>
+            <th>Occupying Room</th>
             <th>Modify</th>
         </tr>
     </thead>
@@ -25,7 +25,8 @@ foreach($tenants as $tenant) {?>
     <td> <?=$tenant->mobile_phone_number?> </td>
     <td> <?=$tenant->email_address?> </td>
     <td> <?=$tenant->employer_details?> </td>
-    <td> <?=$tenant->room_availability?> </td>
+    <td> <?=$tenant->is_renting ?> </td>
+    <td> <?=$tenant->getRoomNumber($tenant->tenant_id) ?> </td>
     <!-- <td>
     <form class="edit_delete" method="post">
 

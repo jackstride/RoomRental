@@ -213,7 +213,7 @@ public function showRooms() {
     $rooms = $this->roomsTable->findAll();
 
         return [
-            'template' => 'admin/rooms/rooms.php',
+            'template' => 'admin/rooms/room.php',
             'title' => 'Rooms',
             'heading' => "Rooms",
             'buttons' => [
@@ -222,7 +222,7 @@ public function showRooms() {
             ],
             'variables' => [
                 'rooms' => $rooms,
-            ]
+            ],
         ];
 }
 
@@ -231,9 +231,7 @@ public function addRoom() {
 
     $houses = $this->housesTable->findAll();
     $tenants = $this->tenantsTable->findAll();
-
     
-
     if(isset($_POST['submit'])){
         $this->roomsTable->insert($_POST['room']);
     }

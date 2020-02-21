@@ -36,11 +36,11 @@ CREATE TABLE `houses` (
   `address` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `number_of_floors` int(11) DEFAULT NULL,
   `number_of_rooms` int(11) DEFAULT NULL,
-  `wifi_available` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wifi_available` bit(1) DEFAULT NULL,
   PRIMARY KEY (`house_id`),
   KEY `fk_h_landlord` (`landlord_id`),
   CONSTRAINT `fk_h_landlord` FOREIGN KEY (`landlord_id`) REFERENCES `landlords` (`landlord_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ CREATE TABLE `houses` (
 
 LOCK TABLES `houses` WRITE;
 /*!40000 ALTER TABLE `houses` DISABLE KEYS */;
-INSERT INTO `houses` VALUES (1,1,'2 Pippin Close',3,4,'Yes'),(2,2,'3 pippin close',3,3,'No');
+INSERT INTO `houses` VALUES (1,1,'Bridge Street, Kettering',2,4,''),(2,2,'Bridge Street, Kettering',1,2,''),(3,3,'Bridge Street, Kettering',3,6,'\0'),(4,4,'Bridge Street, Kettering',4,6,''),(5,5,'Bridge Street, Kettering',2,5,'\0'),(6,6,'Las Santos',2,2,'');
 /*!40000 ALTER TABLE `houses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `landlords` (
   `phone_number` int(11) DEFAULT NULL,
   `email_address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`landlord_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `landlords` (
 
 LOCK TABLES `landlords` WRITE;
 /*!40000 ALTER TABLE `landlords` DISABLE KEYS */;
-INSERT INTO `landlords` VALUES (1,'Jack','Stride','Test',2147483647,'jackstride@outlook.com'),(2,'John','Stride','2 Pippin Close',2147483647,'jackstride@outlook.com'),(3,'Billy','Stride','2 Pippin Close',2147483647,'jackstride@outlook.com'),(4,'June','Stride','2 Pippin Close',2147483647,'jackstride@outlook.com');
+INSERT INTO `landlords` VALUES (1,'John','Smith','Test Lane, Northampton',1604999999,'johnsmith@outlook.com'),(2,'Julie','Smith','Test Lane, Northampton',1604999999,'juliesmith@outlook.com'),(3,'Peter','Stride','Test Lane, Northampton',1604999999,'peterstride@outlook.com'),(4,'Fred','Gallagher','Test Lane, Northampton',1604999999,'fredgallagher@outlook.com'),(5,'Dom','Dolly','Test Lane, Northampton',1604999999,'domdolly@outlook.com'),(6,'Pablo','Acosta','Mexico',10000000,'pabloacost@outlook.com');
 /*!40000 ALTER TABLE `landlords` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,12 +117,15 @@ DROP TABLE IF EXISTS `rentals`;
 CREATE TABLE `rentals` (
   `rental_id` int(8) NOT NULL AUTO_INCREMENT,
   `tenant_id` int(7) DEFAULT NULL,
+  `room_id` int(5) DEFAULT NULL,
   `occupancy_start_date` date DEFAULT NULL,
   `occupancy_end_date` date DEFAULT NULL,
   PRIMARY KEY (`rental_id`),
   KEY `fk_re_tenant_id` (`tenant_id`),
+  KEY `fk_r_room_id` (`room_id`),
+  CONSTRAINT `fk_r_room_id` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`),
   CONSTRAINT `fk_re_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,6 +134,7 @@ CREATE TABLE `rentals` (
 
 LOCK TABLES `rentals` WRITE;
 /*!40000 ALTER TABLE `rentals` DISABLE KEYS */;
+INSERT INTO `rentals` VALUES (1,1,1,'2020-01-10','2020-02-10'),(2,4,2,'2020-01-10','2020-02-10'),(3,5,3,'2020-01-10','2020-02-10');
 /*!40000 ALTER TABLE `rentals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,20 +148,17 @@ DROP TABLE IF EXISTS `rooms`;
 CREATE TABLE `rooms` (
   `room_id` int(5) NOT NULL AUTO_INCREMENT,
   `house_id` int(4) DEFAULT NULL,
-  `tenant_id` int(7) DEFAULT NULL,
   `room_type` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `monthly_rental_figure` decimal(5,2) DEFAULT NULL,
   `deposit_figure` decimal(5,2) DEFAULT NULL,
   `description` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `furnished` bit(1) DEFAULT NULL,
-  `ensuite` bit(1) DEFAULT NULL,
-  `occupied` bit(1) DEFAULT NULL,
+  `is_furnished` bit(1) DEFAULT NULL,
+  `is_ensuite` bit(1) DEFAULT NULL,
+  `is_occupied` bit(1) DEFAULT NULL,
   PRIMARY KEY (`room_id`),
   KEY `fk_r_house_id` (`house_id`),
-  KEY `fk_r_tenant_id` (`tenant_id`),
-  CONSTRAINT `fk_r_house_id` FOREIGN KEY (`house_id`) REFERENCES `houses` (`house_id`),
-  CONSTRAINT `fk_r_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `fk_r_house_id` FOREIGN KEY (`house_id`) REFERENCES `houses` (`house_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +167,7 @@ CREATE TABLE `rooms` (
 
 LOCK TABLES `rooms` WRITE;
 /*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
-INSERT INTO `rooms` VALUES (1,1,NULL,'double',999.00,999.00,'Great','','','');
+INSERT INTO `rooms` VALUES (1,1,'Double',500.00,200.00,'Great Room','','\0','\0'),(2,2,'Single',550.00,250.00,'Great Room','','',''),(3,3,'Double',500.00,200.00,'Great Room','\0','','\0'),(4,4,'Double',400.00,100.00,'Great Room','','\0',''),(5,5,'Single',575.00,275.00,'Great Room','\0','\0','\0');
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,18 +180,15 @@ DROP TABLE IF EXISTS `tenants`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tenants` (
   `tenant_id` int(7) NOT NULL AUTO_INCREMENT,
-  `room_id` int(5) DEFAULT NULL,
   `title` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `first_name` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile_phone_number` int(11) DEFAULT NULL,
   `email_address` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `employer_details` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `room_availability` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`tenant_id`),
-  KEY `fk_t_room_id` (`room_id`),
-  CONSTRAINT `fk_t_room_id` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `is_renting` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`tenant_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,6 +197,7 @@ CREATE TABLE `tenants` (
 
 LOCK TABLES `tenants` WRITE;
 /*!40000 ALTER TABLE `tenants` DISABLE KEYS */;
+INSERT INTO `tenants` VALUES (1,'Mr','Fred','Flinstone',1604899999,'fredflinstone@outlook.com','Mcdonalds',''),(2,'Mrs','Velma','Doo',1604899999,'velmadoo@outlook.com','Mcdonalds','\0'),(3,'DR','Shaggy','doo',1604899999,'shaggydoo@outlook.com','Mcdonalds','\0'),(4,'Ms','ScoobyDee','Doo',1604899999,'scoobydeedoo@outlook.com','ScobbySnack Inc',''),(5,'Miss','Lola','bunny',1604899999,'lolabunny@outlook.com','Mcdonalds','');
 /*!40000 ALTER TABLE `tenants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1044,4 +1043,4 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-21 11:18:21
+-- Dump completed on 2020-02-21 14:44:17
