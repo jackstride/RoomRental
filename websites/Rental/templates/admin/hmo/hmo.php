@@ -20,7 +20,7 @@ foreach($houses as $house) {?>
     <td> <?=$house->address?> </td>
     <td> <?=$house->number_of_floors?> </td>
     <td> <?=$house->number_of_rooms?> </td>
-    <td> <?=$house->wifi_available?> </td>
+    <td> <?= $house->wifi_available ? "Yes" : "No" ?> </td>
     <td> <?=$house->getName($house->landlord_id)?> </td>
     <!-- <td>
     <form class="edit_delete" method="post">

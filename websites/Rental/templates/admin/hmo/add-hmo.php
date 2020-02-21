@@ -9,7 +9,11 @@
 <input type="text" name="house[number_of_rooms]"/>
 
 <label for="wifi_available">Wifi Available</label>
-<input type="text" name="house[wifi_available]"/>
+
+<select name="house[wifi_available]">
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select>
 
 <label for="landlord_id">Select a landlord</label>
 
