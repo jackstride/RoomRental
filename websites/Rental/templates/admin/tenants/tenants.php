@@ -25,8 +25,8 @@ foreach($tenants as $tenant) {?>
     <td> <?=$tenant->mobile_phone_number?> </td>
     <td> <?=$tenant->email_address?> </td>
     <td> <?=$tenant->employer_details?> </td>
-    <td> <?=$tenant->is_renting ?> </td>
-    <td> <?=$tenant->getRoomNumber($tenant->tenant_id) ?> </td>
+    <td> <?=$tenant->is_renting ? "yes Room ID - " . $tenant->getRoomNumber($tenant->tenant_id) : "No" ?></td>
+    
     <!-- <td>
     <form class="edit_delete" method="post">
 
