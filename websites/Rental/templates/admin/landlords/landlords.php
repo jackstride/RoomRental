@@ -12,7 +12,7 @@ if($prompt) { ?>
 <table>
     <thead>
         <tr>
-            <th>First Namee</th>
+            <th>First Name</th>
             <th>Last Name</th>
             <th>Address</th>
             <th>Phone Number</th>
@@ -34,13 +34,15 @@ foreach($landlords as $landlord) {?>
     <td> <?=$landlord->phone_number?> </td>
     <td> <?=$landlord->email_address?> </td>
     <td>
+        <div class="modify">
     <form class="edit_delete" method="post">
 
     <input type="hidden" name="id" value="<?=$landlord->landlord_id?>" />
     <input type="submit" name="delete" value="delete" />
     
     </form>
-    <a style="color: black" href="landlord/edit?id=<?=$landlord->landlord_id?>">Edit</a>
+    <a class="edit" href="landlord/edit?id=<?=$landlord->landlord_id?>">Edit</a>
+    </div>
     </td> 
 </tr>
 

@@ -3,6 +3,7 @@
 
 <head>
 	<link rel="stylesheet" href="/styles.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 	<title><?php echo $title; ?></title>
 </head>
 
@@ -10,17 +11,20 @@
 <div class="application_container">
 
 <header>
-<div class="inner_container">
 <div class="company_header">
-	<h1>The Room Rental <br> Company</h1>
-	</div>
-		<?php if (isset($_SESSION['username'])): ?>
-		<li><a href="/logout">Log out</a></li>
-		<?php require('admin/admin-panel.php') ?>
-		<?php else: ?>
-		<li><a href="/">Log in</a></li>
-		<?php endif; ?>
 		</div>
+	<div class="inner_container">
+		<?php require('admin/admin-panel.php') ?>
+			<div class="nav_footer">
+				<?php if (isset($_SESSION['username'])): ?>
+				<li><a href="/logout">Log out</a></li>
+				<?php else: ?>
+				<li><a href="/">Log in</a></li>
+				<?php endif; ?>
+			</div>
+	</div>
+
+		
 	</header>
 
 

@@ -38,6 +38,7 @@ foreach($rentals as $rental) {?>
     <input type="hidden" name="tenant_id" value="<?=$rental->tenant_id?>" />
     <input type="submit" name="delete" value="delete" />
     </form>
+    <a class="edit" href="landlord/edit?id=<?=$rental->rental_id?>">Edit</a>
     </td> 
 </tr>
 

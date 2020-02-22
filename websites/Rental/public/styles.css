@@ -9,7 +9,7 @@
 
 body {
     /* background-color: #F3EDED; */
-    background-color: white;
+    background-color: #171F2C;
 }
 
 h1 {
@@ -22,20 +22,20 @@ h1 {
 
 
 h2 {
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
 }
 
 .application_container {
     height: 100vh;
     width: 100%;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 235px 1fr;
     grid-template-rows: 1fr 1fr;
 }
 
 header {
-    background-color: #358F6D;
     height: 100%;
     width: 100%;
     grid-column: 1;
@@ -50,6 +50,7 @@ main {
     grid-row: span 2;
     display: flex;
     flex-direction: column;
+
 }
 
 li {
@@ -58,9 +59,9 @@ li {
 
 a {
     text-decoration: none;
-    color: white;
-    font-weight: 500;
-    letter-spacing: .2px;
+    color: rgba(255, 255, 255, .9);
+    font-weight: 600;
+    letter-spacing: .5px;
 }
 
 nav {
@@ -97,6 +98,7 @@ select {
     width: 90%;
     height: 100%;
     margin: 0 auto;
+    position: relative;
     ;
 }
 
@@ -104,16 +106,35 @@ table {
     border-collapse: separate;
     width: 100%;
     border-radius: 12px;
-    background-color: white;
-    border-spacing: 0;
+    background-color: #1F2937;
+    border-spacing: 0px 0px;
     height: fit-content;
 }
 
 th {
     padding: 20px;
-    background-color: #FAFBFC;
-    color: grey;
-    font-weight: 400;
+    /* background-color: #FAFBFC; */
+    background-color: rgb(41, 53, 71);
+    color: rgba(255, 255, 255, .7);
+    font-weight: 300;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(41, 53, 71);
+}
+
+tr td {
+    color: white;
+}
+
+td:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+td:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 th:first-child {
@@ -137,8 +158,12 @@ td {
 /* Header */
 
 .company_header {
-    width: 100%;
-    padding: 20px 0px;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(41, 53, 71);
 
 
 }
@@ -150,18 +175,30 @@ td {
 
 /* Admin Nav */
 .admin_nav {
-    height: 50%;
+    height: 100%;
     width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+
 }
 
 .admin_nav ul {
-    height: 100%;
+    margin-top: 150px;
+    height: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
 }
 
+
+
+.nav_footer {
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+}
 
 
 
@@ -173,6 +210,9 @@ td {
     padding: 10px 0px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
 }
 
 .template_heading ul {
@@ -181,17 +221,26 @@ td {
 }
 
 .template_heading li {
-    padding: 0px 10px;
+    padding: 10px 20px;
     width: fit-content;
     height: fit-content;
-    background-color: black;
+    background-color: #405AFF;
     border-radius: 12px;
 }
 
 .template_heading a {
     color: white;
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+.modify {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -206,7 +255,14 @@ form.edit_delete {
 form.edit_delete>input {
     width: 50px;
     margin: 0px 10px;
+    display: inline-block;
+}
 
+
+a.edit {
+    color: rgba(255, 255, 255, .7);
+    font-weight: 300;
+    display: inline-block;
 }
 
 

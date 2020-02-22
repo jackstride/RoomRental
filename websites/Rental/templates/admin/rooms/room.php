@@ -43,6 +43,7 @@ foreach($rooms as $room) {?>
     <input type="hidden" name="id" value="<?=$room->room_id?>" />
     <input type="submit" name="delete" value="delete" />
     </form>
+    <a class="edit" href="landlord/edit?id=<?=$room->room_id?>">Edit</a>
     </td>
 
 </tr>
