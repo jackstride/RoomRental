@@ -14,9 +14,6 @@ class Room {
         $this->roomsTable = $roomsTable;
     }
 
-
-
-
     public function getName($id) {        
         $test = $this->landlordsTable->find('landlord_id', $id);
         return $test[0]->first_name . " " . $test[0]->last_name;
@@ -36,19 +33,4 @@ class Room {
         }
         return $roomId;
     }
-
-
-
-   public function sumOfUsedRooms($room,$id) {
-    $test = $this->rentalsTable->count($room, $id);
-    return $test;
-   }
-
-
-
-
-
-
-
-
 }

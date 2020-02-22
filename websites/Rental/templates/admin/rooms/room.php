@@ -2,6 +2,7 @@
 <table>
     <thead>
         <tr>
+            <th> Room ID </th>
             <th>House Address</th>
             <th>Type of Room</th>
             <th>Monthly Amount</th>
@@ -18,6 +19,7 @@
 
 foreach($rooms as $room) {?>
 <tr>
+    <td> <?=$room->room_id?> </td>
     <td> <?=$room->house_id?> </td>
     <td> <?=$room->room_type?> </td>
     <td> <?=$room->monthly_rental_figure?> </td>
@@ -26,6 +28,12 @@ foreach($rooms as $room) {?>
     <td> <?=$room->is_furnished ? "Yes" : "No" ?> </td>
     <td> <?=$room->is_ensuite ? "Yes" : "No" ?> </td>
     <td> <?=$room->is_occupied ? "Yes" : "No" ?> </td>
+    <td>
+    <form class="edit_delete" method="post">
+    <input type="hidden" name="id" value="<?=$room->room_id?>" />
+    <input type="submit" name="delete" value="delete" />
+    </form>
+    </td>
 
 </tr>
 

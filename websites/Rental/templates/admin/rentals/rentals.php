@@ -6,6 +6,7 @@
             <th>House ID</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th> Modify </th>
         </tr>
     </thead>
 
@@ -19,6 +20,13 @@ foreach($rentals as $rental) {?>
     <td> <?=$rental->house_id?> </td>
     <td> <?=$rental->occupancy_start_date?> </td>
     <td> <?=$rental->occupancy_end_date?> </td>
+    <td>
+    <form class="edit_delete" method="post">
+    <input type="hidden" name="id" value="<?=$rental->rental_id?>" />
+    <input type="hidden" name="tenant_id" value="<?=$rental->tenant_id?>" />
+    <input type="submit" name="delete" value="delete" />
+    </form>
+    </td> 
 </tr>
 
 <?php 

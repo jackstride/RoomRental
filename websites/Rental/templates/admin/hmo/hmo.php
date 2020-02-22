@@ -3,6 +3,7 @@
 <table>
     <thead>
         <tr>
+            <th> House ID </th>
             <th>Address</th>
             <th>Number of Floors</th>
             <th>Number of Rooms</th>
@@ -18,10 +19,11 @@
 foreach($houses as $house) {?>
 
 <tr>
+    <td> <?=$house->house_id?></td>
     <td> <?=$house->address?> </td>
     <td> <?=$house->number_of_floors?> </td>
     <td> <?=$house->number_of_rooms?> </td>
-    <td> <?=$house->number_of_rooms - $house->sumOfUsedRooms('room_id',$house->house_id) ?></td>
+    <td> test </td>
     <td> <?= $house->wifi_available ? "Yes" : "No" ?> </td>
     <td> <?=$house->getName($house->landlord_id)?> </td>
     <!-- <td>

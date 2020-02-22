@@ -226,6 +226,15 @@ public function addHouse() {
 
 public function showRooms() {
 
+
+    if(isset($_POST['delete'])){
+        $id = [
+            'id' => $_POST['id'],
+        ];
+
+        $this->roomsTable->delete($id);
+    }
+
     $rooms = $this->roomsTable->findAll();
 
         return [
@@ -310,6 +319,29 @@ public function addTenants() {
 // Rentals
 
 public function showRentals() {
+
+
+    if(isset($_POST['delete'])){
+
+        $id = [
+            'id' => $_POST['id'],
+        ];
+
+        $tenant = [
+            'tenant_id' => $_POST['tenant_id']
+        ];
+
+        $fields = [
+            'is_renting' => 0,
+
+        ];
+        $this->rentalsTable->delete($id);
+
+        $this->tenantsTable->update($_POST['tenant_id'],$fields);
+        
+
+
+    }
 
         $rentals = $this->rentalsTable->generateTenants();
 

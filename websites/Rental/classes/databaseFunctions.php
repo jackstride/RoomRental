@@ -115,7 +115,7 @@ if(count($fields) > 1){
         $query .= '' . $key . ' = :' . $key . ',';
     }
     $query = rtrim($query, ',');
-    $query .= ' WHERE ' . $this->primaryKey . ' = ' . $this->primaryKey;
+    $query .= ' WHERE ' . $this->primaryKey . ' = ' . $id;
     // Set the :primaryKey variable
     // $fields['primaryKey'] = $fields['id'];    
 
