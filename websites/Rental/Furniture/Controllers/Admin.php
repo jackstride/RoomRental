@@ -386,6 +386,7 @@ public function showRentals() {
     $bool = false;
     $vars= [];
     $tenant = "";
+    $room_id;
 
     if(isset($_POST['delete'])) {
 
@@ -394,8 +395,6 @@ public function showRentals() {
         $vars = $_POST['id'];    
 
         $tenant = $_POST['tenant_id'];
-
-        
 
     }
 
@@ -409,8 +408,19 @@ public function showRentals() {
                 'is_renting' => 0,
             ];
 
+            $fields2 = [
+                'is_occupied' => 0
+            ];
+
+            $value = $this->rentalsTable->find('rental_id', $vars['id']);
+            $value = $value[0]->room_id;            
+
+
+
             $this->rentalsTable->delete($vars);
             $this->tenantsTable->update($_POST['tenant_id'],$fields);
+            $this->roomsTable->update($value,$fields2);
+            
         }
 
 
@@ -448,9 +458,13 @@ public function showRentals() {
                 'is_renting' => 1,
             ];
 
+            $occupied = [
+                'is_occupied' => 1,
+            ];
 
             $this->tenantsTable->update($id,$fields);
             $this->rentalsTable->insert($_POST['rental']);
+            $this->roomsTable->update($_POST['rental']['room_id'],$occupied);
             
         }
 
