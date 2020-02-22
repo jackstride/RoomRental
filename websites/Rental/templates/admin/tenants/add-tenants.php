@@ -24,17 +24,5 @@
 <label for="employer_details">Employer Details</label>
 <input type="text" name="tenant[employer_details]"/>
 
-
-<select name="tenant[room_availability]">
-<?php
-foreach($rooms as $room) {?>
-<option value="<?=$room->room_id?>"><?=$room->room_id?></option>
-<?php 
-} ?>
-
-<label for="room_availability">Room Occupied </label>
-<input type="text" name=""/>
-
-
 <input type="submit" name="submit" value="Add Tenant"/>
 </form>

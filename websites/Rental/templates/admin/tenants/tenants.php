@@ -1,4 +1,12 @@
-<!-- <button class="add">Add</button> -->
+<?php 
+if($prompt) { ?>
+
+<form method="post">
+<input type="hidden" name='id' value="<?= $val?>" />
+<input class="warning" type="submit" name="p_delete" value="delete" /> 
+</form>
+
+<?php } ?>
 
 <table>
     <thead>
@@ -27,15 +35,15 @@ foreach($tenants as $tenant) {?>
     <td> <?=$tenant->employer_details?> </td>
     <td> <?=$tenant->is_renting ? "yes Room ID - " . $tenant->getRoomNumber($tenant->tenant_id) : "No" ?></td>
     
-    <!-- <td>
+    <td>
     <form class="edit_delete" method="post">
 
-    <input type="hidden" name="id" value="<?=$tenant->landlord_id?>" />
+    <input type="hidden" name="id" value="<?=$tenant->tenant_id?>" />
     <input type="submit" name="delete" value="delete" />
     
     </form>
-    <a style="color: black" href="landlord/edit?id=<?=$tenant->landlord_id?>">Edit</a>
-    </td>  -->
+    <a style="color: black" href="landlord/edit?id=<?=$tenant->tenant_id?>">Edit</a>
+    </td> 
 </tr>
 
 <?php 

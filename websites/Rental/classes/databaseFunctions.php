@@ -118,9 +118,6 @@ if(count($fields) > 1){
     $query .= ' WHERE ' . $this->primaryKey . ' = ' . $id;
     // Set the :primaryKey variable
     // $fields['primaryKey'] = $fields['id'];    
-
-    var_dump($query);
-    var_dump($fields);
     $this->query($query, $fields);
 }
 

@@ -126,13 +126,23 @@ class Admin {
 
 
 public function showLandlords () {
+    $bool = false;
+    $vars= [];
+
     if(isset($_POST['delete'])) {
 
-        $vars = [
-            'id' => $_POST['id']
-        ];
-        $this->landlordsTable->delete($vars);
+        $bool = true;
+
+        $vars = $_POST['id'];    
     }
+
+    if(isset($_POST['p_delete']))
+        {
+            $vars = [
+                "id" => $_POST['id'],
+            ];
+            $this->landlordsTable->delete($vars);
+        }
     
     $landlords = $this->landlordsTable->findAll();
 
@@ -147,6 +157,8 @@ public function showLandlords () {
         ],
         'variables' => [
             'landlords' => $landlords,
+            'prompt' => $bool,
+            'val' => $vars,
         ],
     ];
 
@@ -170,6 +182,24 @@ public function addLandlord () {
 
 // Houses of multiple
 public function showHouses() {
+    $bool = false;
+    $vars= [];
+
+    if(isset($_POST['delete'])) {
+
+        $bool = true;
+
+        $vars = $_POST['id'];    
+    }
+
+    if(isset($_POST['p_delete']))
+        {
+            $vars = [
+                "id" => $_POST['id'],
+            ];
+            $this->housesTable->delete($vars);
+        }
+
 
     $houses = $this->housesTable->findAll();    
         return [
@@ -182,6 +212,8 @@ public function showHouses() {
             ],
             'variables' => [
                 'houses' => $houses,
+                'prompt' => $bool,
+                'val' => $vars,
             ]
         ];
 }
@@ -226,14 +258,23 @@ public function addHouse() {
 
 public function showRooms() {
 
+    $bool = false;
+    $vars= [];
 
-    if(isset($_POST['delete'])){
-        $id = [
-            'id' => $_POST['id'],
-        ];
+    if(isset($_POST['delete'])) {
 
-        $this->roomsTable->delete($id);
+        $bool = true;
+
+        $vars = $_POST['id'];    
     }
+
+    if(isset($_POST['p_delete']))
+        {
+            $vars = [
+                "id" => $_POST['id'],
+            ];
+            $this->roomsTable->delete($vars);
+        }
 
     $rooms = $this->roomsTable->findAll();
 
@@ -247,6 +288,8 @@ public function showRooms() {
             ],
             'variables' => [
                 'rooms' => $rooms,
+                'prompt' => $bool,
+                'val' => $vars,
             ],
         ];
 }
@@ -280,6 +323,24 @@ public function addRoom() {
 
 public function showTenants() {
 
+    $bool = false;
+    $vars= [];
+
+    if(isset($_POST['delete'])) {
+
+        $bool = true;
+
+        $vars = $_POST['id'];    
+    }
+
+    if(isset($_POST['p_delete']))
+        {
+            $vars = [
+                "id" => $_POST['id'],
+            ];
+            $this->tenantsTable->delete($vars);
+        }
+
     $tenants = $this->tenantsTable->findAll();
 
         return [
@@ -292,6 +353,8 @@ public function showTenants() {
             ],
             'variables' => [
                 'tenants' => $tenants,
+                'prompt' => $bool,
+                'val' => $vars,
             ]
         ];
 }
@@ -320,28 +383,37 @@ public function addTenants() {
 
 public function showRentals() {
 
+    $bool = false;
+    $vars= [];
+    $tenant = "";
 
-    if(isset($_POST['delete'])){
+    if(isset($_POST['delete'])) {
 
-        $id = [
-            'id' => $_POST['id'],
-        ];
+        $bool = true;
 
-        $tenant = [
-            'tenant_id' => $_POST['tenant_id']
-        ];
+        $vars = $_POST['id'];    
 
-        $fields = [
-            'is_renting' => 0,
+        $tenant = $_POST['tenant_id'];
 
-        ];
-        $this->rentalsTable->delete($id);
-
-        $this->tenantsTable->update($_POST['tenant_id'],$fields);
         
 
-
     }
+
+    if(isset($_POST['p_delete']))
+        {
+            $vars = [
+                "id" => $_POST['id'],
+            ];
+
+            $fields = [
+                'is_renting' => 0,
+            ];
+
+            $this->rentalsTable->delete($vars);
+            $this->tenantsTable->update($_POST['tenant_id'],$fields);
+        }
+
+
 
         $rentals = $this->rentalsTable->generateTenants();
 
@@ -356,7 +428,9 @@ public function showRentals() {
             ],
             'variables' => [
                 'rentals' => $rentals,
-                ''
+                'prompt' => $bool,
+                'val' => $vars,
+                'tenant' => $tenant
             ]
         ];
     }

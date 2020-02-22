@@ -1,3 +1,13 @@
+<?php 
+if($prompt) { ?>
+
+<form method="post">
+<input type="hidden" name='id' value="<?= $val?>" />
+<input class="warning" type="submit" name="p_delete" value="delete" /> 
+</form>
+
+<?php } ?>
+
 
 <table>
     <thead>

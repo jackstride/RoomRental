@@ -45,7 +45,7 @@ header {
 main {
     height: 90%;
     width: 90%;
-    margin: auto ;
+    margin: auto;
     grid-column: 2;
     grid-row: span 2;
     display: flex;
@@ -82,7 +82,8 @@ form input {
     border: 2px solid black;
     margin: 20px 0px;
 }
- select {
+
+select {
     width: 300px;
     height: 25px;
     background-color: none;
@@ -106,29 +107,29 @@ table {
     background-color: white;
     border-spacing: 0;
     height: fit-content;
-  }
+}
 
-  th {
-      padding: 20px;
-      background-color: #FAFBFC;
-      color: grey;
-      font-weight: 400;
-  }
+th {
+    padding: 20px;
+    background-color: #FAFBFC;
+    color: grey;
+    font-weight: 400;
+}
 
-  th:first-child {
-    border-top-left-radius:12px;
+th:first-child {
+    border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
-  }
-   
-  th:last-child {
-    border-top-right-radius:12px;
-    border-bottom-right-radius: 12px;
-  }
+}
 
-  td {
-      padding: 10px 0px;
-      text-align: center;
-  }
+th:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+td {
+    padding: 10px 0px;
+    text-align: center;
+}
 
 
 
@@ -138,7 +139,7 @@ table {
 .company_header {
     width: 100%;
     padding: 20px 0px;
-    
+
 
 }
 
@@ -174,7 +175,7 @@ table {
     flex-direction: row;
 }
 
-.template_heading ul{
+.template_heading ul {
     display: flex;
     align-items: center;
 }
@@ -202,8 +203,19 @@ form.edit_delete {
 }
 
 
-form.edit_delete>input{
-    width: 50px; 
+form.edit_delete>input {
+    width: 50px;
     margin: 0px 10px;
-        
+
+}
+
+
+
+
+
+
+
+
+form input.warning {
+    border-color: red;
 }
