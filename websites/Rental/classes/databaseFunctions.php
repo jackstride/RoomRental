@@ -54,7 +54,7 @@ class databaseFunctions
     //Function to return the Highest id inside a database table (Last insert)
     public function maxId ()
     {
-        $query = $this->query('SELECT MAX(id) FROM ' . $this->table);
+        $query = $this->query('SELECT MAX(house_id) FROM ' . $this->table);
         //Return a string not an array
         return $query->fetchColumn(0);
     }

@@ -191,7 +191,23 @@ public function addHouse() {
     $landlord = $this->landlordsTable->findAll();
 
     if(isset($_POST['submit'])){
+
         $this->housesTable->insert($_POST['house']);
+
+        $defualtRoomValues = [
+            'house_id' => $this->housesTable->maxId()
+        ];
+
+        $roomAmount = $_POST['house']['number_of_rooms'];
+
+        $i = 0;
+
+        for($i; $i < $roomAmount; $i++){
+
+            $this->roomsTable->insert($defualtRoomValues);
+
+        }
+        
     }
 
     return [

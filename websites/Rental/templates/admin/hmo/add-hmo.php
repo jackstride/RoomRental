@@ -6,7 +6,7 @@
 <input type="text" name="house[number_of_floors]"/>
 
 <label for="number_of_rooms">Number of Rooms</label>
-<input type="text" name="house[number_of_rooms]"/>
+<input class="count" type="number" name="house[number_of_rooms]"/>
 
 <label for="wifi_available">Wifi Available</label>
 
