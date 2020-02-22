@@ -39,7 +39,7 @@ foreach($tenants as $tenant) {?>
     <form class="edit_delete" method="post">
 
     <input type="hidden" name="id" value="<?=$tenant->tenant_id?>" />
-    <input type="submit" name="delete" value="delete" />
+    <input type="submit" name="Delete" value="delete" />
     
     </form>
     <a class="edit" href="landlord/edit?id=<?=$tenant->tenant_id?>">Edit</a>

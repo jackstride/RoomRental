@@ -41,7 +41,7 @@ foreach($rooms as $room) {?>
     <td>
     <form class="edit_delete" method="post">
     <input type="hidden" name="id" value="<?=$room->room_id?>" />
-    <input type="submit" name="delete" value="delete" />
+    <input type="submit" name="Delete" value="Delete" />
     </form>
     <a class="edit" href="landlord/edit?id=<?=$room->room_id?>">Edit</a>
     </td>

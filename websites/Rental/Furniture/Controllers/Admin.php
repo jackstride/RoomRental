@@ -129,7 +129,7 @@ public function showLandlords () {
     $bool = false;
     $vars= [];
 
-    if(isset($_POST['delete'])) {
+    if(isset($_POST['Delete'])) {
 
         $bool = true;
 
@@ -185,7 +185,7 @@ public function showHouses() {
     $bool = false;
     $vars= [];
 
-    if(isset($_POST['delete'])) {
+    if(isset($_POST['Delete'])) {
 
         $bool = true;
 
@@ -261,7 +261,7 @@ public function showRooms() {
     $bool = false;
     $vars= [];
 
-    if(isset($_POST['delete'])) {
+    if(isset($_POST['Delete'])) {
 
         $bool = true;
 
@@ -326,7 +326,7 @@ public function showTenants() {
     $bool = false;
     $vars= [];
 
-    if(isset($_POST['delete'])) {
+    if(isset($_POST['Delete'])) {
 
         $bool = true;
 
@@ -388,7 +388,7 @@ public function showRentals() {
     $tenant = "";
     $room_id;
 
-    if(isset($_POST['delete'])) {
+    if(isset($_POST['Delete'])) {
 
         $bool = true;
 

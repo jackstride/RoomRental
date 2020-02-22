@@ -38,7 +38,7 @@ foreach($houses as $house) {?>
     <form class="edit_delete" method="post">
 
     <input type="hidden" name="id" value="<?=$house->house_id?>" />
-    <input type="submit" name="delete" value="delete" />
+    <input type="submit" name="Delete" value="Delete" />
     
     </form>
     <a class="edit" href="landlord/edit?id=<?=$house->house_id?>">Edit</a>
