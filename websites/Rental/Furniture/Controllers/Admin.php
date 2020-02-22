@@ -295,7 +295,8 @@ public function addTenants() {
 
 public function showRentals() {
 
-    $rentals = $this->rentalsTable->findAll();
+        $rentals = $this->rentalsTable->generateTenants();
+
 
         return [
             'template' => 'admin/rentals/rentals.php',
@@ -307,6 +308,7 @@ public function showRentals() {
             ],
             'variables' => [
                 'rentals' => $rentals,
+                ''
             ]
         ];
     }
@@ -324,13 +326,11 @@ public function showRentals() {
                 'is_renting' => 1,
             ];
 
-            
+
             $this->tenantsTable->update($id,$fields);
             $this->rentalsTable->insert($_POST['rental']);
             
         }
-
-
 
 
         $rooms = $this->roomsTable->find('is_occupied',0);

@@ -125,15 +125,20 @@ if(count($fields) > 1){
 }
 
 
+// QUERY TO SHOW ALL TENANTS TAHT ARE RENTING
+public function generateTenants() {
 
+    $query = 'SELECT re.*, t.first_name, t.last_name, ro.*
+    FROM furniture.rentals re
+    JOIN furniture.rooms ro
+    ON re.room_id = ro.room_id
+    JOIN furniture.tenants t
+    ON re.tenant_id = t.tenant_id;';
 
-
-// Delete with forign Key
-
-public function deleteWithFKey ($vars){
-
-
-
+    $query = $this->query($query);
+    return $query->fetchAll();
 }
+
+
 }
 ?>
