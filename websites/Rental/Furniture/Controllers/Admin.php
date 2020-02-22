@@ -316,8 +316,25 @@ public function showRentals() {
 
     public function addRental() {
 
-        $rooms = $this->roomsTable->findAll();
-        $tenants = $this->tenantsTable->findAll();
+        if(isset($_POST['submit'])){
+
+            $id = $_POST['rental']['tenant_id'];
+
+            $fields = [
+                'is_renting' => 1,
+            ];
+
+            
+            $this->tenantsTable->update($id,$fields);
+            $this->rentalsTable->insert($_POST['rental']);
+            
+        }
+
+
+
+
+        $rooms = $this->roomsTable->find('is_occupied',0);
+        $tenants = $this->tenantsTable->find('is_renting',0);
         $rentals = $this->rentalsTable->findAll();
     
             return [

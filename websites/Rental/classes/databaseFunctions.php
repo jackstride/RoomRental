@@ -102,22 +102,26 @@ public function deleteImage($column,$parameters)
 
 
 //Update function, will remove keys if array is empty.
-public function update($fields)
+public function update($id,$fields)
 {
     $query = ' UPDATE ' . $this->table .' SET ';
 
 //Removes if the array is empty
+if(count($fields) > 1){
     $fields = array_filter($fields);
+}
 
     foreach ($fields as $key => $value) {
         $query .= '' . $key . ' = :' . $key . ',';
     }
     $query = rtrim($query, ',');
-    $query .= ' WHERE ' . $this->primaryKey . ' = :primaryKey';
+    $query .= ' WHERE ' . $this->primaryKey . ' = ' . $this->primaryKey;
     // Set the :primaryKey variable
-    $fields['primaryKey'] = $fields['id'];    
-    $this->query($query, $fields);
+    // $fields['primaryKey'] = $fields['id'];    
 
+    var_dump($query);
+    var_dump($fields);
+    $this->query($query, $fields);
 }
 
 
