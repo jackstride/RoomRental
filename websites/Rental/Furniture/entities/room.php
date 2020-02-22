@@ -39,6 +39,13 @@ class Room {
 
 
 
+   public function sumOfUsedRooms($room,$id) {
+    $test = $this->rentalsTable->count($room, $id);
+    return $test;
+   }
+
+
+
 
 
 

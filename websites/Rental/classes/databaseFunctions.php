@@ -128,7 +128,7 @@ if(count($fields) > 1){
 // QUERY TO SHOW ALL TENANTS TAHT ARE RENTING
 public function generateTenants() {
 
-    $query = 'SELECT re.*, t.first_name, t.last_name, ro.*
+    $query = 'SELECT re.*, t.first_name, t.last_name, ro.house_id
     FROM furniture.rentals re
     JOIN furniture.rooms ro
     ON re.room_id = ro.room_id
@@ -138,6 +138,14 @@ public function generateTenants() {
     $query = $this->query($query);
     return $query->fetchAll();
 }
+
+public function count($col,$val) {
+$sql = 'SELECT COUNT(' . $col . ') FROM '.  $this->table . ' WHERE ' . $col . ' = ' . $val;
+$query = $this->query($sql);
+return $query->fetchColumn(0);
+}
+
+
 
 
 }

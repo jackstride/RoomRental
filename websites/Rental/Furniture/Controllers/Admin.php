@@ -316,8 +316,8 @@ public function showRentals() {
 
         return [
             'template' => 'admin/rentals/rentals.php',
-            'title' => 'Houses',
-            'heading' => "Houses of Multiple Occupancy",
+            'title' => 'Rentals',
+            'heading' => "Rentals",
             'buttons' => [
                 'enabled' => true,
                 'addLink' => 'rentals/add',

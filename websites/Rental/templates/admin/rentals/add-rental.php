@@ -1,10 +1,3 @@
-<?php 
-foreach($tenants as $tenant){
-    var_dump($tenant->first_name);
-    }
-    ?>
-
-
 <form method="post">
 
 <label for="tenant_id"> Tenant </label>

@@ -1,3 +1,4 @@
+
 <table>
     <thead>
         <tr>
@@ -16,26 +17,18 @@
 <?php
 
 foreach($rooms as $room) {?>
-
 <tr>
-    <td> <?=$room->room_id?> </td>
+    <td> <?=$room->house_id?> </td>
     <td> <?=$room->room_type?> </td>
     <td> <?=$room->monthly_rental_figure?> </td>
     <td> <?=$room->deposit_figure?> </td>
     <td> <?=$room->description?> </td>
-    <td> <?= $room->is_furnished ? "Yes" : "No" ?> </td>
+    <td> <?=$room->is_furnished ? "Yes" : "No" ?> </td>
     <td> <?=$room->is_ensuite ? "Yes" : "No" ?> </td>
     <td> <?=$room->is_occupied ? "Yes" : "No" ?> </td>
-    <!-- <td>
-    <form class="edit_delete" method="post">
 
-    <input type="hidden" name="id" value="<?=$room->landlord_id?>" />
-    <input type="submit" name="delete" value="delete" />
-    
-    </form>
-    <a style="color: black" href="landlord/edit?id=<?=$room->landlord_id?>">Edit</a>
-    </td>  -->
 </tr>
+
 
 <?php 
 } ?>

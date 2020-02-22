@@ -19,16 +19,6 @@ foreach($rentals as $rental) {?>
     <td> <?=$rental->house_id?> </td>
     <td> <?=$rental->occupancy_start_date?> </td>
     <td> <?=$rental->occupancy_end_date?> </td>
-    
-    <!-- <td>
-    <form class="edit_delete" method="post">
-
-    <input type="hidden" name="id" value="<?=$rental->landlord_id?>" />
-    <input type="submit" name="delete" value="delete" />
-    
-    </form>
-    <a style="color: black" href="landlord/edit?id=<?=$rental->landlord_id?>">Edit</a>
-    </td>  -->
 </tr>
 
 <?php 
