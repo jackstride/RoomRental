@@ -175,6 +175,17 @@ class Routes implements \classes\Routes {
                         'function' => 'showRentals'
                     ],
                 ],
+
+                'admin/rentals/add' => [
+                    "GET" => [
+                        'controller' => $adminController,
+                        "function" => 'addRental'
+                    ],
+                    'POST' => [
+                        'controller' => $adminController,
+                        'function' => 'addRental'
+                    ],
+                ],
                 
 
                 

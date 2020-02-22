@@ -291,8 +291,6 @@ public function addTenants() {
 
 
 
-
-
 // Rentals
 
 public function showRentals() {
@@ -311,7 +309,33 @@ public function showRentals() {
                 'rentals' => $rentals,
             ]
         ];
-}
+    }
+
+
+
+
+    public function addRental() {
+
+        $rooms = $this->roomsTable->findAll();
+        $tenants = $this->tenantsTable->findAll();
+        $rentals = $this->rentalsTable->findAll();
+    
+            return [
+                'template' => 'admin/rentals/add-rental.php',
+                'title' => 'Add Rental',
+                'heading' => "Add rental",
+                'variables' => [
+                    'rooms' => $rooms,
+                    'tenants' => $tenants,
+                    'rentals' => $rentals,
+                ]
+            ];
+        }
+        
+
+
+
+
 
 
 
