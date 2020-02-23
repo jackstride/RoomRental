@@ -34,7 +34,6 @@ class EntryPoint {
     $page = $controller->$functionName();
     
     //Below sets the class name to either a $page variable, if one's not set then 'home' is chosen 
-    $class = $page['class'] ?? 'home';
     $heading = $page['heading'] ?? null;
     $buttons = $page['buttons'] ?? null;
     

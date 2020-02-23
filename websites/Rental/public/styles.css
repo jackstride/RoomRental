@@ -1,6 +1,3 @@
-/* import fonts */
-@import url('https://stockfont.org/?4a5bb014f59603eb330910c7693749a32bf221a66f2e9e6dedf281c5e9dc8dcb');
-
 * {
     margin: 0;
     padding: 0;
@@ -50,7 +47,6 @@ main {
     grid-row: span 2;
     display: flex;
     flex-direction: column;
-
 }
 
 li {
@@ -74,14 +70,26 @@ form {
     flex-direction: column;
 }
 
+label {
+    color: white;
+    font-size: 22px;
+}
+
 
 form input {
     width: 300px;
-    height: 25px;
-    background-color: none;
-    border-radius: 5px;
-    border: 2px solid black;
-    margin: 20px 0px;
+    height: 40px;
+    border-radius: 3px;
+    margin: 10px 0px;
+    border: 0px;
+    background-color: rgb(41, 53, 71);
+    color: white !important;
+}
+
+
+
+input[type="submit"] {
+    font-size: 22px;
 }
 
 select {
@@ -180,7 +188,6 @@ td {
     text-align: left;
     display: flex;
     justify-content: center;
-
 }
 
 .admin_nav ul {
@@ -277,11 +284,35 @@ a.edit {
 
 
 
-
-
-
-
-
 form input.warning {
     border-color: red;
+}
+
+
+
+
+
+/* Login Form */
+.login_form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    flex-direction: column;
+    position: relative;
+    left: -235px;
+}
+
+
+.login_form input {
+    width: 400px;
+    height: 62px;
+}
+
+
+.login_form h1 {
+    font-size: 32px;
+    padding: 20px 0px;
 }

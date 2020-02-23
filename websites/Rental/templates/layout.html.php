@@ -11,10 +11,10 @@
 <div class="application_container">
 
 <header>
-<div class="company_header">
-		</div>
 	<div class="inner_container">
-		<?php require('admin/admin-panel.php') ?>
+	<?php if (isset($_SESSION['username'])): ?>
+	<?php require('admin/admin-panel.php') ?>
+	<?php endif; ?>
 			<div class="nav_footer">
 				<?php if (isset($_SESSION['username'])): ?>
 				<li><a href="/logout">Log out</a></li>

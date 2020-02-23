@@ -9,20 +9,12 @@ $hide = $user->hasPermission(\Furniture\Entities\Admin::HIDE);
 ?>
 
 
-<nav class="admin_nav">
-<ul>
-<li><a href='/admin/landlords'>Landlords</a></li>
-<li><a href='/admin/houses'>Houses</a></li>
-<li><a href='/admin/rooms'>Rooms</a></li>
-<li><a href='/admin/tenants'>Tenants</a></li>
-<li><a href='/admin/rentals'>Rentals</a></li>
-
- </ul>
- </nav>
-
-<!-- <h3> Staff </h3>
-<ul>
-    <li><a href='/admin/addemployee'> Add a new user </a></li>
-    <li><a href='/admin/list'>View and Edit Users</a></li>
-    
-</ul> -->
+<nav class="admin_nav"> 
+    <ul>
+        <li><a href='/admin/landlords'>Landlords</a></li>
+        <li><a href='/admin/houses'>Houses</a></li>
+        <li><a href='/admin/rooms'>Rooms</a></li>
+        <li><a href='/admin/tenants'>Tenants</a></li>
+        <li><a href='/admin/rentals'>Rentals</a></li>
+    </ul>
+</nav>

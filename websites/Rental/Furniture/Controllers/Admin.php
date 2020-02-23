@@ -36,14 +36,14 @@ class Admin {
     // Redirects the user if already logged in
     if(isset($_SESSION['username']))
     {
-        header('Location: /admin');
+        header('Location: /admin/rentals');
     }
 
     else
     {
-        return ['template' => 'admin/admin-login-template.php',
+        return [
+        'template' => 'admin/admin-login-template.php',
         'title' => 'Login',
-        'class' => 'admin',
         'variables' => []
                 ];  
     }
@@ -72,11 +72,7 @@ class Admin {
     {
         if($this->authentication->login($_POST['email'], $_POST['password']))
         {
-            return ['template' => 'admin/admin-success.php',
-                'title' => 'Logged in',
-                'class' => 'admin',
-                'variables' => [],
-                ];
+            header('Location: /admin/landlords');
         }
          else
         {
@@ -112,8 +108,8 @@ class Admin {
         unset($_SESSION['username']);
         session_destroy();
         return [
-            'template' => 'logout.php',
-            'title' => 'You have been logged out',
+            'template' => 'admin/admin-login-template.php',
+            'title' => 'Login',
             'variables' => [
             ]
         ];
