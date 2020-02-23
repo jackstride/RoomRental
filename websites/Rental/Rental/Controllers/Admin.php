@@ -107,12 +107,7 @@ class Admin {
         //https://stackoverflow.com/questions/3512507/proper-way-to-logout-from-a-session-in-php getting issues when using unset session
         unset($_SESSION['username']);
         session_destroy();
-        return [
-            'template' => 'admin/admin-login-template.php',
-            'title' => 'Login',
-            'variables' => [
-            ]
-        ];
+        header('Location: /');
     }
 
 
