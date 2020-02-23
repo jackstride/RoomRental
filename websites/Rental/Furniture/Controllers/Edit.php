@@ -90,14 +90,16 @@ class Edit {
     //Room
     public function editRoom () {
         if(isset($_POST['Submit'])) {
-            // $this->landlordsTable->update($_POST['id'],$_POST['landlord']);
+            $this->roomsTable->update($_POST['id'],$_POST['room']);
             header('Location: /admin/rooms');
+            // var_dump($_POST['room']);
         }
         else {
 
             $id= $_GET['id'];
 
             $rooms = $this->roomsTable->find('room_id', $id);
+            $houses = $this->housesTable->findAll();
 
             return [
                 'template' => 'admin/rooms/edit-room.php',
@@ -105,6 +107,7 @@ class Edit {
                 'heading' => "Edit Room",
                 'variables' => [
                     'rooms' => $rooms,
+                    'houses' => $houses,
                     'id' => $id
                 ]
             ];

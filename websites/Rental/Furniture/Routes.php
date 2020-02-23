@@ -166,7 +166,7 @@ class Routes implements \classes\Routes {
                     ],
                 ],
 
-                'admin/rooms/edit' => [
+                'admin/room/edit' => [
                     "GET" => [
                         'controller' => $editController,
                         "function" => 'editRoom'

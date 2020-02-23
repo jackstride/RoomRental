@@ -15,7 +15,7 @@
         <select name="house[wifi_available]">
 
          <?php
-         if($house->wifi_available) { ?>
+         if($house->wifi_available) {  $selected = $house->wifi_available?>
         <option value="0"> No </option>
         <option selected="true" value="1"> Yes </option>
          <?php } else {
@@ -27,7 +27,7 @@
 
         <select name='house[landlord_id]'>
         <?php foreach($landlords as $landlord) { $selected = $house->landlord_id;?>
-            <option <?= $landlord->landlord_id == $selected ? "selected ='true'" : "" ?> value="<?=$landlord->landlord_id?>">
+            <option <?=$landlord->landlord_id == $selected ? "selected ='true'" : "" ?> value="<?=$landlord->landlord_id?>">
             <?=$landlord->first_name?>
             </option>
             <?php } ?>

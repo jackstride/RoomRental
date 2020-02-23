@@ -102,6 +102,9 @@ select {
 }
 
 
+
+
+
 .inner_container {
     width: 90%;
     height: 100%;
@@ -397,4 +400,8 @@ form.form_edit>input[type="Submit"] {
     cursor: pointer;
     font-size: 16px;
     letter-spacing: .5px;
+}
+
+form.form_edit>select {
+    width: 100%;
 }
