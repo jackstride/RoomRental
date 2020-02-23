@@ -1,5 +1,5 @@
 <?php
-namespace Furniture\Controllers;
+namespace Rental\Controllers;
 
 class Employees {
     
@@ -187,7 +187,7 @@ class Employees {
     public function permissions ()
     {
         $users = $this->usersTable->find('id',$_GET['id']);
-        $reflected = new \ReflectionClass('\Furniture\Entities\Admin');
+        $reflected = new \ReflectionClass('\Rental\Entities\Admin');
         $constants = $reflected->getConstants();
 
                 return [

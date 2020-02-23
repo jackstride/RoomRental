@@ -125,7 +125,7 @@ CREATE TABLE `rentals` (
   KEY `fk_r_room_id` (`room_id`),
   CONSTRAINT `fk_r_room_id` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`),
   CONSTRAINT `fk_re_tenant_id` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +166,7 @@ CREATE TABLE `rooms` (
 
 LOCK TABLES `rooms` WRITE;
 /*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
-INSERT INTO `rooms` VALUES (1,5,'Double',500.00,200.00,'Great Room',1,1,1),(2,2,'Single',550.00,250.00,'Great Room',1,1,0),(3,3,'Double',500.00,200.00,'Great Room',0,1,0),(4,4,'Double',400.00,100.00,'Great Room',1,0,0),(5,5,'Single',575.00,275.00,'Great Room',0,0,0);
+INSERT INTO `rooms` VALUES (1,5,'Double',500.00,200.00,'Great Room',1,1,0),(2,2,'Single',550.00,250.00,'Great Room',1,1,0),(3,3,'Double',500.00,200.00,'Great Room',0,1,0),(4,4,'Double',400.00,100.00,'Great Room',1,0,0),(5,5,'Single',575.00,275.00,'Great Room',0,0,0);
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +196,7 @@ CREATE TABLE `tenants` (
 
 LOCK TABLES `tenants` WRITE;
 /*!40000 ALTER TABLE `tenants` DISABLE KEYS */;
-INSERT INTO `tenants` VALUES (1,'Mr','Fred','Flinstone',1604899999,'fredflinstone@outlook.com','Mcdonalds',1),(2,'Mrs','Velma','Doo',1604899999,'velmadoo@outlook.com','Mcdonalds',0),(3,'DR','Shaggy','doo',1604899999,'shaggydoo@outlook.com','Mcdonalds',0),(4,'Ms','ScoobyDee','Doo',1604899999,'scoobydeedoo@outlook.com','ScobbySnack Inc',0),(5,'Miss','Lola','bunny',1604899999,'lolabunny@outlook.com','Mcdonalds',0);
+INSERT INTO `tenants` VALUES (1,'Mr','Fred','Flinstone',1604899999,'fredflinstone@outlook.com','Mcdonalds',0),(2,'Mrs','Velma','Doo',1604899999,'velmadoo@outlook.com','Mcdonalds',0),(3,'DR','Shaggy','doo',1604899999,'shaggydoo@outlook.com','Mcdonalds',0),(4,'Ms','ScoobyDee','Doo',1604899999,'scoobydeedoo@outlook.com','ScobbySnack Inc',0),(5,'Miss','Lola','bunny',1604899999,'lolabunny@outlook.com','Mcdonalds',0);
 /*!40000 ALTER TABLE `tenants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1042,4 +1042,4 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-23 16:55:58
+-- Dump completed on 2020-02-23 21:31:52

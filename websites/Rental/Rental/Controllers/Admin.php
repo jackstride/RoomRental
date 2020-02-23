@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Furniture\Controllers;
+namespace Rental\Controllers;
 
 class Admin {
     

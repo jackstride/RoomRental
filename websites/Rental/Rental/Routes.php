@@ -1,7 +1,7 @@
 <?php
-namespace Furniture;
+namespace Rental;
 
-use Furniture\Conrollers\pageController;
+use Rental\Conrollers\pageController;
 
 class Routes implements \classes\Routes {
 
@@ -24,13 +24,13 @@ class Routes implements \classes\Routes {
         // Code provided by Tom Butler & Kevin Yank from the book PHP & MYSQL: Novice to Ninja however with adjustments made to suit this assigment
         //References Page 544
         
-        // $this->furnitureTable = new \classes\databaseFunctions($pdo, 'furniture', 'id','\Furniture\Entities\Furniture',[&$this->categoryTable,&$this->imagesTable]);
-        $this->usersTable = new \classes\databaseFunctions($pdo, 'users', 'id','\Furniture\Entities\Admin');  
+        // $this->RentalTable = new \classes\databaseFunctions($pdo, 'Rental', 'id','\Rental\Entities\Rental',[&$this->categoryTable,&$this->imagesTable]);
+        $this->usersTable = new \classes\databaseFunctions($pdo, 'users', 'id','\Rental\Entities\Admin');  
         $this->imagesTable = new \classes\databaseFunctions($pdo, 'images', 'id');
         $this->rentalsTable = new \classes\databaseFunctions($pdo, 'rentals', 'rental_id');
-        $this->tenantsTable = new \classes\databaseFunctions($pdo, 'tenants', 'tenant_id','\Furniture\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
-        $this->roomsTable = new \classes\databaseFunctions($pdo, 'rooms', 'room_id','\Furniture\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
-        $this->housesTable = new \classes\databaseFunctions($pdo, 'houses', 'house_id','\Furniture\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
+        $this->tenantsTable = new \classes\databaseFunctions($pdo, 'tenants', 'tenant_id','\Rental\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
+        $this->roomsTable = new \classes\databaseFunctions($pdo, 'rooms', 'room_id','\Rental\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
+        $this->housesTable = new \classes\databaseFunctions($pdo, 'houses', 'house_id','\Rental\Entities\Room',[&$this->landlordsTable,&$this->rentalsTable,&$this->roomsTable]);
         $this->landlordsTable = new \classes\databaseFunctions($pdo, 'landlords', 'landlord_id');
         // $this->images = new \classes\Images($this->imagesTable);
         
@@ -40,9 +40,9 @@ class Routes implements \classes\Routes {
     public function getRoutes(): array
     {
         //Define controllers
-        $employeeController = new \Furniture\Controllers\employees($this->usersTable, $_GET, $_POST);
-        $adminController = new \Furniture\Controllers\admin($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $this->housesTable, $this->roomsTable, $this->tenantsTable, $this->rentalsTable, $_GET, $_POST); 
-        $editController = new \Furniture\Controllers\edit($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $this->housesTable, $this->roomsTable, $this->tenantsTable, $this->rentalsTable, $_GET, $_POST); 
+        $employeeController = new \Rental\Controllers\employees($this->usersTable, $_GET, $_POST);
+        $adminController = new \Rental\Controllers\admin($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $this->housesTable, $this->roomsTable, $this->tenantsTable, $this->rentalsTable, $_GET, $_POST); 
+        $editController = new \Rental\Controllers\edit($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $this->housesTable, $this->roomsTable, $this->tenantsTable, $this->rentalsTable, $_GET, $_POST); 
     
         $routes = [
             '' => [
@@ -283,7 +283,7 @@ class Routes implements \classes\Routes {
                         'function' => 'registerUser',
                     ],
                     'login' => true,
-                    'permissions' => \Furniture\Entities\Admin::ADD,
+                    'permissions' => \Rental\Entities\Admin::ADD,
                 ],
 
                 // Permissions
@@ -299,7 +299,7 @@ class Routes implements \classes\Routes {
                     ],
 
                     'login' => true,
-                    'permissions' => \Furniture\Entities\Admin::EDIT_USER_ACCESS,
+                    'permissions' => \Rental\Entities\Admin::EDIT_USER_ACCESS,
                     ],
 
                 'admin/list' => [
@@ -313,7 +313,7 @@ class Routes implements \classes\Routes {
                         'function' => 'list',
                     ],
                     'login' => true,
-                    'permissions' => \Furniture\Entities\Admin::EDIT_USER_ACCESS,
+                    'permissions' => \Rental\Entities\Admin::EDIT_USER_ACCESS,
                         ],
 
 

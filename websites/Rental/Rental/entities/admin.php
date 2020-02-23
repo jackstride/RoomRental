@@ -1,5 +1,5 @@
 <?php
-namespace Furniture\Entities;
+namespace Rental\Entities;
 
 class Admin {
 

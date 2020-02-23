@@ -106,13 +106,12 @@ public function update($id,$fields)
 {
     $query = ' UPDATE ' . $this->table .' SET ';
 
-    var_dump($fields);
 //Removes if the array is empty
 if(count($fields) > 1){
     // Keep 0 Numeric
     $fields = array_filter($fields, 'strlen');
 
-    var_dump($fields);
+    
 }
 
     foreach ($fields as $key => $value) {
