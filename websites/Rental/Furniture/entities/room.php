@@ -21,7 +21,6 @@ class Room {
 
 
     public function getRoomNumber($id){
-        $roomId;
         $rentalId = $this->rentalsTable->find('tenant_id',$id);
 
         if(empty($rentalId)){
@@ -33,4 +32,19 @@ class Room {
         }
         return $roomId;
     }
+
+
+    
+
+
+
+
+
+
+
+
+
 }
+
+
+

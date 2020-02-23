@@ -111,8 +111,9 @@ public function update($id,$fields)
 if(count($fields) > 1){
     // Keep 0 Numeric
     $fields = array_filter($fields, 'strlen');
+
+    var_dump($fields);
 }
-var_dump($fields);
 
     foreach ($fields as $key => $value) {
         $query .= '' . $key . ' = :' . $key . ',';
@@ -122,7 +123,6 @@ var_dump($fields);
     // Set the :primaryKey variable
     // $fields['primaryKey'] = $fields['id'];    
     $this->query($query, $fields);
-    var_dump($query);
 }
 
 

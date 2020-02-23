@@ -380,43 +380,27 @@ public function addTenants() {
 public function showRentals() {
 
     $bool = false;
-    $vars= [];
+    $id= [];
     $tenant = "";
     $room_id;
 
     if(isset($_POST['Delete'])) {
-
         $bool = true;
-
-        $vars = $_POST['id'];    
-
+        $id = $_POST['id'];    
         $tenant = $_POST['tenant_id'];
-
     }
-
     if(isset($_POST['p_delete']))
         {
-            $vars = [
+            $id = [
                 "id" => $_POST['id'],
             ];
 
-            $fields = [
-                'is_renting' => 0,
-            ];
-
-            $fields2 = [
-                'is_occupied' => 0
-            ];
-
-            $value = $this->rentalsTable->find('rental_id', $vars['id']);
+            $value = $this->rentalsTable->find('rental_id', $id['id']);
             $value = $value[0]->room_id;            
 
-
-
-            $this->rentalsTable->delete($vars);
-            $this->tenantsTable->update($_POST['tenant_id'],$fields);
-            $this->roomsTable->update($value,$fields2);
-            
+            $this->rentalsTable->delete($id);
+            $this->setNotRenting($_POST['tenant_id']);
+            $this->setRoomFree($value);
         }
 
 
@@ -435,7 +419,7 @@ public function showRentals() {
             'variables' => [
                 'rentals' => $rentals,
                 'prompt' => $bool,
-                'val' => $vars,
+                'val' => $id,
                 'tenant' => $tenant
             ]
         ];
@@ -484,11 +468,21 @@ public function showRentals() {
 
 
 
+        // Helper functions
 
+        public function setNotRenting($id) {
+            $fields = [
+                'is_renting' => 0,
+            ];
+            $this->tenantsTable->update($id,$fields);
+        }
 
+        public function setRoomFree($value) {
+            $fields = [
+                'is_occupied' => 0,
+            ];
 
-
-
-
+            $this->roomsTable->update($value,$fields);
+        }
 
 }?>

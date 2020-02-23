@@ -238,7 +238,7 @@ class Routes implements \classes\Routes {
                 ],
 
 
-                'admin/rentals/edit' => [
+                'admin/rental/edit' => [
                     "GET" => [
                         'controller' => $editController,
                         "function" => 'editRental'

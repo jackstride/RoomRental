@@ -140,19 +140,26 @@ class Edit {
         }    
     }
 
-
-
     //Rental
     public function editRental () {
+
+
+
         if(isset($_POST['Submit'])) {
-            // $this->landlordsTable->update($_POST['id'],$_POST['landlord']);
-            header('Location: /admin/rental');
+
+            $this->rentalsTable->update($_POST['id'],$_POST['rental']);
+
+            header('Location: /admin/rentals');
         }
+
         else {
 
             $id= $_GET['id'];
-
-            // $renalts = $this->rentalsTable->find('rental_id', $id);
+            $rentals = $this->rentalsTable->find('rental_id', $id);
+            $tenants = $this->tenantsTable->findAll();
+            $rooms = $this->roomsTable->findAll();
+            // $room_id = 
+            // $tenant_id = 
 
             return [
                 'template' => 'admin/rentals/edit-rental.php',
@@ -160,6 +167,8 @@ class Edit {
                 'heading' => "Edit Rental",
                 'variables' => [
                     'rentals' => $rentals,
+                    'tenants' => $tenants,
+                    'rooms' => $rooms,
                     'id' => $id
                 ]
             ];
