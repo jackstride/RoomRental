@@ -464,9 +464,7 @@ public function showRentals() {
                 ]
             ];
         }
-        
-
-
+    
 
         // Helper functions
 

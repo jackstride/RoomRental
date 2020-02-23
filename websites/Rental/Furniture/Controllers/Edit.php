@@ -147,6 +147,26 @@ class Edit {
 
         if(isset($_POST['Submit'])) {
 
+        // Set tenant
+        $old = $this->rentalsTable->find('rental_id', $_POST['id']);
+
+        $oldTenant = $old[0]->tenant_id;
+        $oldRoom = $old[0]->room_id;
+        $newTenant = $_POST['rental']['tenant_id'];
+        $newRoom = $_POST['rental']['room_id'];
+
+
+        if($oldTenant != $newTenant) {
+            $this->setRenting($oldTenant,0);
+            $this->setRenting($newTenant,1);
+        }
+
+        if($oldRoom != $newRoom) {
+            $this->setRoomOcc($oldRoom,0);
+            $this->setRoomOcc($newRoom,1);
+        }
+
+
             $this->rentalsTable->update($_POST['id'],$_POST['rental']);
 
             header('Location: /admin/rentals');
@@ -158,8 +178,6 @@ class Edit {
             $rentals = $this->rentalsTable->find('rental_id', $id);
             $tenants = $this->tenantsTable->findAll();
             $rooms = $this->roomsTable->findAll();
-            // $room_id = 
-            // $tenant_id = 
 
             return [
                 'template' => 'admin/rentals/edit-rental.php',
@@ -175,4 +193,32 @@ class Edit {
         }    
     }
 
+
+    public function setRenting($id,$val) {
+        $fields = [
+            'is_renting' => $val,
+        ];
+        $this->tenantsTable->update($id,$fields);
+    }
+    
+    public function setRoomOcc($value,$val) {
+        $fields = [
+            'is_occupied' => $val,
+        ];
+    
+        $this->roomsTable->update($value,$fields);
+    }
+
+
+
+
 }
+
+
+
+
+
+
+
+// Helper functions
+
