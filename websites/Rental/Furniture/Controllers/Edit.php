@@ -119,7 +119,7 @@ class Edit {
     //Tenant
     public function editTenant () {
         if(isset($_POST['Submit'])) {
-            // $this->landlordsTable->update($_POST['id'],$_POST['landlord']);
+            $this->tenantsTable->update($_POST['id'],$_POST['tenant']);
             header('Location: /admin/tenants');
         }
         else {
