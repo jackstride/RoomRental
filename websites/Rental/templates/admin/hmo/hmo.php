@@ -35,13 +35,15 @@ foreach($houses as $house) {?>
     <td> <?= $house->wifi_available ? "Yes" : "No" ?> </td>
     <td> <?=$house->getName($house->landlord_id)?> </td>
     <td>
+    <div class="modify">
     <form class="edit_delete" method="post">
 
     <input type="hidden" name="id" value="<?=$house->house_id?>" />
     <input type="submit" name="Delete" value="Delete" />
     
     </form>
-    <a class="edit" href="landlord/edit?id=<?=$house->house_id?>">Edit</a>
+    <a class="edit" href="houses/edit?id=<?=$house->house_id?>">Edit</a>
+</div>
     </td> 
 </tr>
 

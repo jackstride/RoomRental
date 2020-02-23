@@ -36,6 +36,7 @@ foreach($tenants as $tenant) {?>
     <td> <?=$tenant->is_renting ? "yes Room ID - " . $tenant->getRoomNumber($tenant->tenant_id) : "No" ?></td>
     
     <td>
+    <div class="modify">
     <form class="edit_delete" method="post">
 
     <input type="hidden" name="id" value="<?=$tenant->tenant_id?>" />
@@ -43,6 +44,7 @@ foreach($tenants as $tenant) {?>
     
     </form>
     <a class="edit" href="landlord/edit?id=<?=$tenant->tenant_id?>">Edit</a>
+</div>
     </td> 
 </tr>
 

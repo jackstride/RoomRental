@@ -260,7 +260,6 @@ form.edit_delete {
 
 
 form.edit_delete>input {
-
     width: 80px;
     height: 30px;
     margin: 0px 10px;
@@ -272,7 +271,20 @@ form.edit_delete>input {
     font-size: 16px;
     margin: 20px;
     letter-spacing: .5px;
+}
 
+form.edit_post>input {
+    width: 80px;
+    height: 30px;
+    margin: 0px 10px;
+    background-color: #405AFF;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px;
+    letter-spacing: .5px;
 }
 
 
@@ -283,13 +295,9 @@ a.edit {
 }
 
 
-
 form input.warning {
     border-color: red;
 }
-
-
-
 
 
 /* Login Form */
@@ -315,4 +323,78 @@ form input.warning {
 .login_form h1 {
     font-size: 32px;
     padding: 20px 0px;
+}
+
+
+
+
+
+/* Edit Form */
+
+
+.edit_form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
+}
+
+
+.form_labels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    background-color: rgb(41, 53, 71);
+    text-align: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 60px;
+}
+
+
+.form_labels label {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 300;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_edit {
+    display: grid;
+    grid-row: 2;
+    background-color: #1F2937;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: center;
+    align-content: center;
+}
+
+form.form_edit>input {
+    width: 80%;
+    margin: 0;
+    background-color: #1F2937;
+    font-size: 16px;
+    height: 100%;
+    text-align: center;
+}
+
+
+
+form.form_edit>input::placeholder {
+    color: rgba(255, 255, 255, .5);
+}
+
+
+form.form_edit>input[type="Submit"] {
+    width: 80px;
+    height: 30px;
+    margin: 0px 10px;
+    background-color: #405AFF;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: .5px;
 }

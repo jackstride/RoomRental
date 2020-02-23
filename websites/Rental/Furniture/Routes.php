@@ -42,6 +42,7 @@ class Routes implements \classes\Routes {
         //Define controllers
         $employeeController = new \Furniture\Controllers\employees($this->usersTable, $_GET, $_POST);
         $adminController = new \Furniture\Controllers\admin($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $this->housesTable, $this->roomsTable, $this->tenantsTable, $this->rentalsTable, $_GET, $_POST); 
+        $editController = new \Furniture\Controllers\edit($this->authentication,$this->imagesTable, $this->images,$this->usersTable, $this->landlordsTable, $this->housesTable, $this->roomsTable, $this->tenantsTable, $this->rentalsTable, $_GET, $_POST); 
     
         $routes = [
             '' => [
@@ -89,6 +90,21 @@ class Routes implements \classes\Routes {
                 ],
 
 
+                // Edit Landlord 
+
+
+                'admin/landlords/edit' => [
+                    "GET" => [
+                        'controller' => $editController,
+                        "function" => 'editLandlord'
+                    ],
+                    'POST' => [
+                        'controller' => $editController,
+                        'function' => 'editLandlord'
+                    ],
+                ],
+
+
                 // Houses
 
                 'admin/houses' => [
@@ -110,6 +126,18 @@ class Routes implements \classes\Routes {
                     'POST' => [
                         'controller' => $adminController,
                         'function' => 'addHouse'
+                    ],
+                ],
+
+
+                'admin/houses/edit' => [
+                    "GET" => [
+                        'controller' => $editController,
+                        "function" => 'editHouse'
+                    ],
+                    'POST' => [
+                        'controller' => $editController,
+                        'function' => 'editHouse'
                     ],
                 ],
 
@@ -138,6 +166,17 @@ class Routes implements \classes\Routes {
                     ],
                 ],
 
+                'admin/rooms/edit' => [
+                    "GET" => [
+                        'controller' => $editController,
+                        "function" => 'editRoom'
+                    ],
+                    'POST' => [
+                        'controller' => $editController,
+                        'function' => 'editRoom'
+                    ],
+                ],
+
 
                 // Tenants
 
@@ -160,6 +199,17 @@ class Routes implements \classes\Routes {
                     'POST' => [
                         'controller' => $adminController,
                         'function' => 'addTenants'
+                    ],
+                ],
+
+                'admin/tenants/edit' => [
+                    "GET" => [
+                        'controller' => $editController,
+                        "function" => 'editTenant'
+                    ],
+                    'POST' => [
+                        'controller' => $editController,
+                        'function' => 'editTenant'
                     ],
                 ],
 
@@ -186,6 +236,21 @@ class Routes implements \classes\Routes {
                         'function' => 'addRental'
                     ],
                 ],
+
+
+                'admin/rentals/edit' => [
+                    "GET" => [
+                        'controller' => $editController,
+                        "function" => 'editRental'
+                    ],
+                    'POST' => [
+                        'controller' => $editController,
+                        'function' => 'editRental'
+                    ],
+                ],
+
+
+                
                 
 
                 

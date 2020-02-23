@@ -34,14 +34,14 @@ foreach($landlords as $landlord) {?>
     <td> <?=$landlord->phone_number?> </td>
     <td> <?=$landlord->email_address?> </td>
     <td>
-        <div class="modify">
+    <div class="modify">
     <form class="edit_delete" method="post">
 
     <input type="hidden" name="id" value="<?=$landlord->landlord_id?>" />
     <input type="submit" name="Delete" value="Delete" />
     
     </form>
-    <a class="edit" href="landlord/edit?id=<?=$landlord->landlord_id?>">Edit</a>
+    <a class="edit" href="landlords/edit?id=<?=$landlord->landlord_id?>">Edit</a>
     </div>
     </td> 
 </tr>

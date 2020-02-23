@@ -39,11 +39,13 @@ foreach($rooms as $room) {?>
     <td> <?=$room->is_ensuite ? "Yes" : "No" ?> </td>
     <td> <?=$room->is_occupied ? "Yes" : "No" ?> </td>
     <td>
+    <div class="modify">
     <form class="edit_delete" method="post">
     <input type="hidden" name="id" value="<?=$room->room_id?>" />
     <input type="submit" name="Delete" value="Delete" />
     </form>
     <a class="edit" href="landlord/edit?id=<?=$room->room_id?>">Edit</a>
+</div>
     </td>
 
 </tr>

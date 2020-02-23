@@ -106,9 +106,11 @@ public function update($id,$fields)
 {
     $query = ' UPDATE ' . $this->table .' SET ';
 
+    
 //Removes if the array is empty
 if(count($fields) > 1){
-    $fields = array_filter($fields);
+    // Keep 0 Numeric
+    $fields = array_filter($fields, 'is_numeric');
 }
 
     foreach ($fields as $key => $value) {
@@ -119,6 +121,7 @@ if(count($fields) > 1){
     // Set the :primaryKey variable
     // $fields['primaryKey'] = $fields['id'];    
     $this->query($query, $fields);
+    var_dump($query);
 }
 
 
