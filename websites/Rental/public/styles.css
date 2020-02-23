@@ -94,11 +94,23 @@ input[type="submit"] {
 
 select {
     width: 300px;
-    height: 25px;
-    background-color: none;
+    height: 60px;
     border-radius: 5px;
-    border: 2px solid black;
+    border: none;
     margin: 20px 0px;
+    background-color: rgb(41, 53, 71);
+    color: white;
+    font-size: 16px;
+}
+
+
+option {
+    height: 40px;
+}
+
+input[type="date"] {
+    width: 300px;
+    font-size: 16px;
 }
 
 
